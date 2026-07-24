@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://djhfh4qpv6qjd"]
 
+[ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="1_2grjb"]
 [ext_resource type="PackedScene" uid="uid://bpkpo87ntubhe" path="res://objects/player/player.tscn" id="1_72lju"]
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="1_lkjt4"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="2_lkjt4"]
@@ -30,6 +31,8 @@ physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_2grjb")
 
 [node name="Test" type="Node2D" unique_id=1698854073]
+
+[node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("1_2grjb")]
 
 [node name="World" type="Node2D" parent="." unique_id=1011935162]
 

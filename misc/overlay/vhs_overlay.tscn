@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://id6w7tjrjogo"]
+
+[ext_resource type="Shader" uid="uid://ba00ejqjfqyp7" path="res://misc/overlay/shader.gdshader" id="1_3p7t8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hetct"]
+shader = ExtResource("1_3p7t8")
+shader_parameter/curvature = 0.035
+shader_parameter/scanline_strength = 0.07
+shader_parameter/noise_strength = 0.025
+shader_parameter/chromatic_aberration = 0.0015
+shader_parameter/flicker_strength = 0.004
+shader_parameter/vignette_strength = 0.45
+shader_parameter/tracking_strength = 0.002
+shader_parameter/tracking_speed = 0.1
+
+[node name="VHSOverlay" type="Node2D" unique_id=1765106576]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523551957]
+layer = 100
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=182410341]
+material = SubResource("ShaderMaterial_hetct")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
