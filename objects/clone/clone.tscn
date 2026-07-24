@@ -14,8 +14,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Clone" type="Node2D" unique_id=1386962524]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(32, 16)
+
+[node name="Clone" type="CharacterBody2D" unique_id=2130983286]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_5nd7p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=116264070]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709396000]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_g4v7s")

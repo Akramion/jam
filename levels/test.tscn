@@ -1,10 +1,24 @@
 [gd_scene format=3 uid="uid://djhfh4qpv6qjd"]
 
 [ext_resource type="PackedScene" uid="uid://bpkpo87ntubhe" path="res://objects/player/player.tscn" id="1_72lju"]
+[ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="1_lkjt4"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="2_lkjt4"]
 
 [node name="Test" type="Node2D" unique_id=1698854073]
 
+[node name="TimelineManager" parent="." unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "timer_label") instance=ExtResource("1_lkjt4")]
+player = NodePath("../Player")
+clone_scene = ExtResource("2_lkjt4")
+clones_container = NodePath("../ClonesContainer")
+timer_label = NodePath("../UI/Label")
+
 [node name="Player" parent="." unique_id=124266775 instance=ExtResource("1_72lju")]
 position = Vector2(304, 160)
-clone_scene = ExtResource("2_lkjt4")
+
+[node name="UI" type="Node" parent="." unique_id=188145912]
+
+[node name="Label" type="Label" parent="UI" unique_id=770867809]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ClonesContainer" type="Node2D" parent="." unique_id=326658702]

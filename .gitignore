@@ -1,19 +1,26 @@
-# Godot
+# Godot 4 generated cache
 .godot/
+
+# Godot 3 generated cache
 .import/
-export.cfg
-export_presets.cfg
 
-# Imported resources
-*.translation
-
-# Builds
+# Exported builds
 build/
 builds/
 dist/
 export/
 
-# OS
+# Temporary files
+*.tmp
+*.temp
+*.log
+*~
+
+# Aseprite backups
+*.aseprite~
+*.bak
+
+# OS files
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -22,6 +29,7 @@ desktop.ini
 .vscode/
 .idea/
 
-# Logs and temporary files
-*.log
-*.tmp
+# Recording and video files
+recordings/
+captures/
+*.mkv

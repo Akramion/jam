@@ -1,25 +1,15 @@
 extends CharacterBody2D
 
-@export var clone_scene: PackedScene
-@export var speed: float = 250.0
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@export var speed := 250.0
 
-var recorded_positions: Array[Vector2] = []
-var is_recording := true
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var recorded_inputs: Array[Vector2] = []
+var is_recording := false
+var last_direction := Vector2.DOWN
 
 
 func _physics_process(_delta: float) -> void:
-	handle_movement()
-	
-	if is_recording:
-		recorded_positions.append(global_position)
-		
-	if Input.is_action_just_pressed("restart_recording"):
-		print("Записано кадров: ", recorded_positions.size())
-		create_clone()
-
-
-func handle_movement() -> void:
 	var input_direction := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -29,17 +19,53 @@ func handle_movement() -> void:
 
 	velocity = input_direction * speed
 
-	if input_direction.x != 0:
-		animated_sprite_2d.flip_h = input_direction.x < 0
+
+	if input_direction != Vector2.ZERO:
+		last_direction = input_direction
+		play_walk_animation(input_direction)
+	else:
+		play_idle_animation(last_direction)
 
 	move_and_slide()
 
-func create_clone() -> void:
-	if recorded_positions.is_empty():
-		return
+	if is_recording:
+		recorded_inputs.append(input_direction)
+
+
+func start_recording() -> void:
+	recorded_inputs.clear()
+	is_recording = true
+
+
+func stop_recording() -> Array[Vector2]:
+	is_recording = false
+
+	var result := recorded_inputs.duplicate()
+	recorded_inputs.clear()
+
+	return result
 	
-	var clone = clone_scene.instantiate()
-	get_parent().add_child(clone)
-	clone.setup(recorded_positions)
-	
-	recorded_positions.clear()
+func play_walk_animation(direction: Vector2) -> void:
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			sprite.play("walk_left")
+		else:
+			sprite.play("walk_right")
+	else:
+		if direction.y < 0:
+			sprite.play("walk_back")
+		else:
+			sprite.play("walk_front")
+
+
+func play_idle_animation(direction: Vector2) -> void:
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			sprite.play("idle_left")
+		else:
+			sprite.play("idle_right")
+	else:
+		if direction.y < 0:
+			sprite.play("idle_back")
+		else:
+			sprite.play("idle_front")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://di3s24rpmw7uw"]
+
+[ext_resource type="Script" uid="uid://cx65kogdjakw0" path="res://objects/timeline_manager/timeline_manager.gd" id="1_m204w"]
+
+[node name="TimelineManager" type="Node" unique_id=2001771932]
+script = ExtResource("1_m204w")
