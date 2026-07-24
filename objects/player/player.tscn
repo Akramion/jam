@@ -105,7 +105,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=124266775]
+[node name="Player" type="CharacterBody2D" unique_id=124266775 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=618498703]
@@ -114,5 +115,5 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1629919977]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle_front"
+animation = &"idle_left"
 autoplay = "idle_front"

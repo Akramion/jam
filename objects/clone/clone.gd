@@ -8,11 +8,6 @@ var recorded_inputs: Array[Vector2] = []
 var frame_index := 0
 var spawn_position: Vector2
 
-
-func _ready() -> void:
-	add_to_group("clones")
-
-
 func setup(inputs: Array[Vector2], start_position: Vector2) -> void:
 	recorded_inputs = inputs.duplicate()
 	spawn_position = start_position
