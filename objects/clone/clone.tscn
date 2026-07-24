@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dcieykumq7o5x"]
+
+[ext_resource type="Texture2D" uid="uid://bpe4sod25sndt" path="res://assets/sprites/clone.png" id="1_5igvc"]
+[ext_resource type="Script" uid="uid://i70mjypahsno" path="res://objects/clone/clone.gd" id="1_5nd7p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Clone" type="Node2D" unique_id=1386962524]
+script = ExtResource("1_5nd7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=116264070]
+sprite_frames = SubResource("SpriteFrames_g4v7s")

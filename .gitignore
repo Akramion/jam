@@ -1,0 +1,27 @@
+# Godot
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported resources
+*.translation
+
+# Builds
+build/
+builds/
+dist/
+export/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
