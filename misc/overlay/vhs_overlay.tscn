@@ -17,7 +17,6 @@ shader_parameter/tracking_speed = 0.1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523551957]
 layer = 100
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=182410341]
 material = SubResource("ShaderMaterial_hetct")

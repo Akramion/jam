@@ -1,15 +1,21 @@
 extends CharacterBody2D
 
-@export var speed := 250.0
+@export var speed := 190.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var recorded_inputs: Array[Vector2] = []
 var is_recording := false
 var last_direction := Vector2.DOWN
+var controls_enabled := true
 
 
 func _physics_process(_delta: float) -> void:
+	if not controls_enabled:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+		
 	var input_direction := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -69,3 +75,9 @@ func play_idle_animation(direction: Vector2) -> void:
 			sprite.play("idle_back")
 		else:
 			sprite.play("idle_front")
+
+func set_controls_enabled(enabled: bool) -> void:
+	controls_enabled = enabled
+
+	if not controls_enabled:
+		velocity = Vector2.ZERO

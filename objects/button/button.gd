@@ -5,7 +5,7 @@ signal activation_changed(active: bool)
 
 @export var targets: Array[Node]
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var bodies_on_button: Array[Node2D] = []
 var is_active := false
@@ -59,7 +59,10 @@ func _update_state() -> void:
 
 func _update_visual() -> void:
 	# Frame 0 — отпущена, Frame 1 — нажата.
-	sprite.frame = 1 if is_active else 0
+	if is_active:
+		animated_sprite_2d.play("on")
+	else:
+		animated_sprite_2d.play("off")
 
 
 func _notify_targets() -> void:

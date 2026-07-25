@@ -3,7 +3,7 @@ extends StaticBody2D
 
 @export var starts_open := false
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 var is_open := false
@@ -23,8 +23,9 @@ func set_active(active: bool) -> void:
 func _apply_state(opened: bool) -> void:
 	is_open = opened
 
-	# Пока нет отдельного спрайта открытой двери:
-	sprite.visible = not is_open
+	if is_open:
+		sprite.play("opened")
+	else:
+		sprite.play("closed")
 
-	# Открытая дверь больше не блокирует проход.
 	collision.set_deferred("disabled", is_open)
