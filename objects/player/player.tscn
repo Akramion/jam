@@ -256,6 +256,7 @@ height = 48.0
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_oul6g")
+step_interval = 0.35
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1998385303]
 modulate = Color(1, 1, 1, 0.5882353)
@@ -280,3 +281,10 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1055241350]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_57qmd")
+
+[node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=1829015615]
+
+[node name="StepsSound" type="FmodEventEmitter2D" parent="." unique_id=1659538995]
+event_name = "event:/Footsteps"
+event_guid = "{671ec27c-f3ea-46fe-a121-807a6cf2cd4c}"
+volume = 0.5

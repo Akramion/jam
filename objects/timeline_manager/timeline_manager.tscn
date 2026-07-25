@@ -4,3 +4,11 @@
 
 [node name="TimelineManager" type="Node" unique_id=2001771932]
 script = ExtResource("1_m204w")
+
+[node name="RewindSound" type="FmodEventEmitter2D" parent="." unique_id=906100920]
+event_name = "event:/Reverse"
+event_guid = "{8a33e984-ab02-4ff4-b273-0e17c473d841}"
+
+[node name="RestartSound" type="FmodEventEmitter2D" parent="." unique_id=693850904]
+event_name = "event:/Restart"
+event_guid = "{14cbb899-ce09-49a9-b1f8-14aa9e5dcfbe}"

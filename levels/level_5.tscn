@@ -170,10 +170,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("9_brp6y")]
 visible = false
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=578549524]
-bank_paths = ["res://fmod/Master.strings.bank", "res://fmod/Master.bank"]
-
-[node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=194952609]
-
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=1387208480]

@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="6_qhnv2"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="7_vru0x"]
 [ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="8_5oqfd"]
-[ext_resource type="PackedScene" uid="uid://dtjbsybfrtdc3" path="res://levels/level_3.tscn" id="8_sc6c1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_eslq1"]
 tile_data = PackedInt32Array(0, 327680, 7, 65536, 262144, 7, 1, 262144, 7, 65537, 327680, 7)
@@ -132,7 +131,7 @@ targets = [NodePath("../Ysort/Door5")]
 y_sort_enabled = true
 
 [node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("3_ng40l")]
-position = Vector2(152, 320)
+position = Vector2(160, 312)
 
 [node name="LevelExit" parent="Ysort" unique_id=1557218980 instance=ExtResource("4_04hp8")]
 position = Vector2(576, 32)

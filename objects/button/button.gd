@@ -6,6 +6,7 @@ signal activation_changed(active: bool)
 @export var targets: Array[Node]
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sound_emitter: FmodEventEmitter2D = $FmodEventEmitter2D
 
 var bodies_on_button: Array[Node2D] = []
 var is_active := false
@@ -52,6 +53,7 @@ func _update_state() -> void:
 	is_active = new_state
 
 	_update_visual()
+	_play_state_sound()
 	_notify_targets()
 
 	activation_changed.emit(is_active)
@@ -76,3 +78,11 @@ func _notify_targets() -> void:
 			push_warning(
 				"Target %s does not have set_active(active)" % target.name
 			)
+
+func _play_state_sound() -> void:
+	#if is_active:
+		#sound_emitter.set_parameter("Parameter 1", 0.0)
+	#else:
+		#sound_emitter.set_parameter("Parameter 1", 1.0)
+
+	sound_emitter.play()

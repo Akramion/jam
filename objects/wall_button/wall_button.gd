@@ -2,6 +2,7 @@ class_name WallButton
 extends Area2D
 
 @export var reset_on_cycle_restart := true
+@onready var fmod_event_emitter_2d: FmodEventEmitter2D = $FmodEventEmitter2D
 
 signal active_changed(is_active: bool)
 signal pressed(button: WallButton)
@@ -38,6 +39,7 @@ func interact(_actor: Node) -> void:
 	if is_completed:
 		return
 
+	fmod_event_emitter_2d.play()
 	if activation_mode == ActivationMode.PERMANENT:
 		activate_permanently()
 	else:

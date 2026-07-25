@@ -4,6 +4,10 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var steps_sound: FmodEventEmitter2D = $StepsSound
+@export var step_interval := 0.32
+
+var step_time_left := 0.0
 
 var recorded_inputs: Array[Dictionary] = []
 var is_recording := false
@@ -13,7 +17,7 @@ var last_direction := Vector2.DOWN
 var controls_enabled := true
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not controls_enabled:
 		velocity = Vector2.ZERO
 		interact_requested = false
@@ -28,6 +32,8 @@ func _physics_process(_delta: float) -> void:
 	)
 
 	velocity = input_direction * speed
+	
+	_update_footsteps(input_direction, delta)
 
 	if input_direction != Vector2.ZERO:
 		last_direction = input_direction
@@ -119,3 +125,14 @@ func set_controls_enabled(enabled: bool) -> void:
 	if not controls_enabled:
 		velocity = Vector2.ZERO
 		interact_requested = false
+
+func _update_footsteps(direction: Vector2, delta: float) -> void:
+	if direction == Vector2.ZERO:
+		step_time_left = 0.0
+		return
+
+	step_time_left -= delta
+
+	if step_time_left <= 0.0:
+		steps_sound.play()
+		step_time_left = step_interval

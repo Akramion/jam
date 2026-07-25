@@ -49,3 +49,11 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ActiveTimer" type="Timer" parent="." unique_id=224465868]
 one_shot = true
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=2103571208]
+event_name = "event:/Button"
+event_guid = "{5cd16e36-3322-4fd7-9858-41778d3a99f0}"
+"fmod_parameters/Parameter 1/id" = 7254248103703392866
+"fmod_parameters/Parameter 1" = "Start"
+"fmod_parameters/Parameter 1/labels" = PackedStringArray("Start", "Finish")
+"fmod_parameters/Parameter 1/variant_type" = 4

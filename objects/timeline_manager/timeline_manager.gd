@@ -50,6 +50,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		finish_cycle()
 
 func restart_level() -> void:
+	AudioManager.play_restart()
+
+	player.set_controls_enabled(false)
+	player.velocity = Vector2.ZERO
+
+	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
 
 func start_cycle() -> void:
@@ -63,6 +69,7 @@ func start_cycle() -> void:
 		clone.restart_playback()
 
 func finish_cycle() -> void:
+	AudioManager.play_rewind()
 	var recording: Array[Dictionary] = player.stop_recording()
 
 	if recording.is_empty():
@@ -86,6 +93,8 @@ func _on_level_completed() -> void:
 		return
 
 	level_is_completed = true
+	
+	AudioManager.level_complete()
 
 	player.stop_recording()
 	player.velocity = Vector2.ZERO
