@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpkpo87ntubhe" path="res://objects/player/player.tscn" id="4_aerfg"]
 [ext_resource type="PackedScene" uid="uid://dxjpyijpjy11y" path="res://objects/door/door.tscn" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="7_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://bv8l7nb0dkl1h" path="res://levels/level_2.tscn" id="8_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="8_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="9_lrvbd"]
 
@@ -148,15 +147,6 @@ clone_scene = ExtResource("8_bgw3c")
 clones_container = NodePath("../..")
 timer_label = NodePath("../UI/Label")
 level_exit = NodePath("../../LevelExit")
-next_level = ExtResource("8_3sk1a")
-
-[node name="TimelineManager" parent="Ysort/Gameplay/TimelineManager" unique_id=185494354 node_paths=PackedStringArray("player", "clones_container", "timer_label", "level_exit") instance=ExtResource("7_vjtdm")]
-max_clones = 1
-player = NodePath("../../../Player")
-clone_scene = ExtResource("8_bgw3c")
-clones_container = NodePath("../../..")
-timer_label = NodePath("../../UI/Label")
-level_exit = NodePath("../../../LevelExit")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3

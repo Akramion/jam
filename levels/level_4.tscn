@@ -166,7 +166,6 @@ clone_scene = ExtResource("7_vru0x")
 clones_container = NodePath("../..")
 timer_label = NodePath("../UI/Label")
 level_exit = NodePath("../../LevelExit")
-next_level = ExtResource("8_sc6c1")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3
