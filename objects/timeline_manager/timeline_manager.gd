@@ -20,10 +20,11 @@ var clone_count := 0
 
 func _ready() -> void:
 	spawn_position = player.global_position
+
 	if level_exit:
 		level_exit.level_completed.connect(_on_level_completed)
 
-	start_cycle()
+	start_cycle.call_deferred()
 	
 func _physics_process(delta: float) -> void:
 	if level_is_completed:
@@ -52,6 +53,7 @@ func restart_level() -> void:
 	get_tree().reload_current_scene()
 
 func start_cycle() -> void:
+	reset_cycle_objects()
 	cycle_time_left = cycle_duration
 	player.global_position = spawn_position
 	player.velocity = Vector2.ZERO
@@ -61,20 +63,21 @@ func start_cycle() -> void:
 		clone.restart_playback()
 
 func finish_cycle() -> void:
-	var recording: Array[Vector2] = player.stop_recording()
-	
+	var recording: Array[Dictionary] = player.stop_recording()
+
 	if recording.is_empty():
 		start_cycle()
 		return
-	
+
 	if clone_count >= max_clones:
 		print("Клоны закончились")
 		return
-	
+
 	var clone := clone_scene.instantiate()
 	clones_container.add_child(clone)
+
 	clone.setup(recording, spawn_position)
-	
+
 	clone_count += 1
 	start_cycle()
 
@@ -96,3 +99,8 @@ func _on_level_completed() -> void:
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		print("Уровень пройден")
+
+func reset_cycle_objects() -> void:
+	for object in get_tree().get_nodes_in_group("cycle_resettable"):
+		if object.has_method("reset_for_new_cycle"):
+			object.reset_for_new_cycle()

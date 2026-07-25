@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://duw70wt4sj5g4" path="res://assets/sprites/button.png" id="8_qhvcx"]
 [ext_resource type="Texture2D" uid="uid://u6fvekduptgh" path="res://assets/sprites/exit.png" id="9_kqvnf"]
 [ext_resource type="PackedScene" uid="uid://cxauao2yg4y7i" path="res://objects/level_exit/level_exit.tscn" id="9_qhvcx"]
+[ext_resource type="PackedScene" uid="uid://bwycl3n2omgdh" path="res://objects/wall_button/wall_button.tscn" id="11_eudka"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_eslq1"]
 tile_data = PackedInt32Array(0, 327680, 7, 65536, 262144, 7, 1, 262144, 7, 65537, 327680, 7)
@@ -141,149 +142,156 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 56.0
 offset_bottom = 39.0
-
-[node name="Door2" parent="Ysort" unique_id=366871013 instance=ExtResource("7_u45fp")]
-position = Vector2(736, -256)
-
-[node name="Door3" parent="Ysort" unique_id=1952338471 instance=ExtResource("7_u45fp")]
-position = Vector2(960, -256)
-
-[node name="Button" parent="Ysort" unique_id=1865714220 instance=ExtResource("6_6g8e2")]
-position = Vector2(688, -336)
-
-[node name="Button2" parent="Ysort" unique_id=2093307080 instance=ExtResource("6_6g8e2")]
-position = Vector2(904, -344)
-
-[node name="Button3" parent="Ysort" unique_id=573873292 instance=ExtResource("6_6g8e2")]
-position = Vector2(696, -160)
-
-[node name="Door4" parent="Ysort" unique_id=512316778 instance=ExtResource("7_u45fp")]
-position = Vector2(1248, -256)
-
-[node name="LevelExit" parent="Ysort" unique_id=1909720425 instance=ExtResource("9_qhvcx")]
-position = Vector2(1248, -328)
-
-[node name="Button4" parent="Ysort" unique_id=1826775624 instance=ExtResource("6_6g8e2")]
-position = Vector2(1784, -112)
-
-[node name="Button7" parent="Ysort" unique_id=528599260 instance=ExtResource("6_6g8e2")]
-position = Vector2(1784, -112)
-
-[node name="Door5" parent="Ysort" unique_id=1374477694 instance=ExtResource("7_u45fp")]
-position = Vector2(1600, -256)
-
-[node name="Door6" parent="Ysort" unique_id=701077547 instance=ExtResource("7_u45fp")]
-position = Vector2(1952, -256)
-
-[node name="Button5" type="Sprite2D" parent="Ysort" unique_id=214679353]
-position = Vector2(1600, -376)
-texture = ExtResource("8_qhvcx")
-
-[node name="Button6" type="Sprite2D" parent="Ysort" unique_id=1569302169]
-position = Vector2(1960, -376)
-texture = ExtResource("8_qhvcx")
-
-[node name="Button8" parent="Ysort" unique_id=1323309557 instance=ExtResource("6_6g8e2")]
-position = Vector2(2904, -256)
-
-[node name="Exit" type="Sprite2D" parent="Ysort" unique_id=1069153368]
-position = Vector2(2872, -544)
-texture = ExtResource("9_kqvnf")
-
-[node name="Exit2" type="Sprite2D" parent="Ysort" unique_id=2125394865]
-position = Vector2(3360, -512)
-texture = ExtResource("9_kqvnf")
-
-[node name="Exit3" type="Sprite2D" parent="Ysort" unique_id=375452863]
-position = Vector2(3952, -544)
-texture = ExtResource("9_kqvnf")
+metadata/_edit_use_anchors_ = true
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("1_2grjb")]
+visible = false
 
-[node name="Button3" parent="." unique_id=1946951602 instance=ExtResource("6_6g8e2")]
+[node name="WallButton" parent="." unique_id=1157880822 instance=ExtResource("11_eudka")]
+position = Vector2(104, 32)
+
+[node name="testLevels" type="Node2D" parent="." unique_id=383070662]
+
+[node name="Button3" parent="testLevels" unique_id=1946951602 instance=ExtResource("6_6g8e2")]
 position = Vector2(320, -88)
 
-[node name="Door7" parent="." unique_id=2111992339 instance=ExtResource("7_u45fp")]
+[node name="Door7" parent="testLevels" unique_id=2111992339 instance=ExtResource("7_u45fp")]
 position = Vector2(2296, -384)
 
-[node name="Door8" parent="." unique_id=2128088206 instance=ExtResource("7_u45fp")]
+[node name="Door8" parent="testLevels" unique_id=2128088206 instance=ExtResource("7_u45fp")]
 position = Vector2(2872, -448)
 
-[node name="Door" parent="." unique_id=1897125360 instance=ExtResource("7_u45fp")]
+[node name="Door" parent="testLevels" unique_id=1897125360 instance=ExtResource("7_u45fp")]
 position = Vector2(320, -384)
 
-[node name="LevelExit" parent="." unique_id=51557439 instance=ExtResource("9_qhvcx")]
+[node name="LevelExit" parent="testLevels" unique_id=51557439 instance=ExtResource("9_qhvcx")]
 position = Vector2(320, -496)
 
-[node name="Door2" parent="." unique_id=2079220560 instance=ExtResource("7_u45fp")]
+[node name="Door2" parent="testLevels" unique_id=2079220560 instance=ExtResource("7_u45fp")]
 position = Vector2(1792, -512)
 
-[node name="LevelExit2" parent="." unique_id=1625345385 instance=ExtResource("9_qhvcx")]
+[node name="LevelExit2" parent="testLevels" unique_id=1625345385 instance=ExtResource("9_qhvcx")]
 position = Vector2(1784, -648)
 
-[node name="Exit" type="Sprite2D" parent="." unique_id=1920288829]
+[node name="Exit" type="Sprite2D" parent="testLevels" unique_id=1920288829]
 position = Vector2(2296, -488)
 texture = ExtResource("9_kqvnf")
 
-[node name="Button4" type="Sprite2D" parent="." unique_id=1561426712]
+[node name="Button4" type="Sprite2D" parent="testLevels" unique_id=1561426712]
 position = Vector2(2200, -384)
 texture = ExtResource("8_qhvcx")
 
-[node name="Button5" type="Sprite2D" parent="." unique_id=2090525074]
+[node name="Button5" type="Sprite2D" parent="testLevels" unique_id=2090525074]
 position = Vector2(2408, -384)
 texture = ExtResource("8_qhvcx")
 
-[node name="Button6" type="Sprite2D" parent="." unique_id=691259251]
+[node name="Button6" type="Sprite2D" parent="testLevels" unique_id=691259251]
 position = Vector2(2720, -448)
 texture = ExtResource("8_qhvcx")
 
-[node name="Button7" type="Sprite2D" parent="." unique_id=855900721]
+[node name="Button7" type="Sprite2D" parent="testLevels" unique_id=855900721]
 position = Vector2(3008, -440)
 texture = ExtResource("8_qhvcx")
 
-[node name="Door3" parent="." unique_id=87856496 instance=ExtResource("7_u45fp")]
+[node name="Door3" parent="testLevels" unique_id=87856496 instance=ExtResource("7_u45fp")]
 position = Vector2(2720, -320)
 
-[node name="Door4" parent="." unique_id=33181792 instance=ExtResource("7_u45fp")]
+[node name="Door4" parent="testLevels" unique_id=33181792 instance=ExtResource("7_u45fp")]
 position = Vector2(3008, -320)
 
-[node name="Door5" parent="." unique_id=1655581406 instance=ExtResource("7_u45fp")]
+[node name="Door5" parent="testLevels" unique_id=1655581406 instance=ExtResource("7_u45fp")]
 position = Vector2(3352, -416)
 
-[node name="Button8" parent="." unique_id=531550463 instance=ExtResource("6_6g8e2")]
+[node name="Button8" parent="testLevels" unique_id=531550463 instance=ExtResource("6_6g8e2")]
 position = Vector2(3272, -232)
 
-[node name="Button9" parent="." unique_id=703086495 instance=ExtResource("6_6g8e2")]
+[node name="Button9" parent="testLevels" unique_id=703086495 instance=ExtResource("6_6g8e2")]
 position = Vector2(3312, -232)
 
-[node name="Button10" parent="." unique_id=1351826541 instance=ExtResource("6_6g8e2")]
+[node name="Button10" parent="testLevels" unique_id=1351826541 instance=ExtResource("6_6g8e2")]
 position = Vector2(3432, -232)
 
-[node name="Button11" parent="." unique_id=452807592 instance=ExtResource("6_6g8e2")]
+[node name="Button11" parent="testLevels" unique_id=452807592 instance=ExtResource("6_6g8e2")]
 position = Vector2(3472, -232)
 
-[node name="Door6" parent="." unique_id=2055862845 instance=ExtResource("7_u45fp")]
+[node name="Door6" parent="testLevels" unique_id=2055862845 instance=ExtResource("7_u45fp")]
 position = Vector2(4080, -288)
 
-[node name="Door9" parent="." unique_id=1431347231 instance=ExtResource("7_u45fp")]
+[node name="Door9" parent="testLevels" unique_id=1431347231 instance=ExtResource("7_u45fp")]
 position = Vector2(3848, -224)
 
-[node name="Button12" type="Sprite2D" parent="." unique_id=956955972]
+[node name="Button12" type="Sprite2D" parent="testLevels" unique_id=956955972]
 position = Vector2(3784, -224)
 texture = ExtResource("8_qhvcx")
 
-[node name="Button13" type="Sprite2D" parent="." unique_id=464108134]
+[node name="Button13" type="Sprite2D" parent="testLevels" unique_id=464108134]
 position = Vector2(4088, -448)
 texture = ExtResource("8_qhvcx")
 
-[node name="Button14" parent="." unique_id=547411119 instance=ExtResource("6_6g8e2")]
+[node name="Button14" parent="testLevels" unique_id=547411119 instance=ExtResource("6_6g8e2")]
 position = Vector2(4080, -224)
 
-[node name="Button15" parent="." unique_id=1772289884 instance=ExtResource("6_6g8e2")]
+[node name="Button15" parent="testLevels" unique_id=1772289884 instance=ExtResource("6_6g8e2")]
 position = Vector2(4080, -176)
 
-[node name="Button16" parent="." unique_id=817860910 instance=ExtResource("6_6g8e2")]
+[node name="Button16" parent="testLevels" unique_id=817860910 instance=ExtResource("6_6g8e2")]
 position = Vector2(3848, -288)
 
-[node name="Button17" parent="." unique_id=1185157907 instance=ExtResource("6_6g8e2")]
+[node name="Button17" parent="testLevels" unique_id=1185157907 instance=ExtResource("6_6g8e2")]
 position = Vector2(3848, -336)
+
+[node name="Door10" parent="testLevels" unique_id=366871013 instance=ExtResource("7_u45fp")]
+position = Vector2(736, -256)
+
+[node name="Door11" parent="testLevels" unique_id=1952338471 instance=ExtResource("7_u45fp")]
+position = Vector2(960, -256)
+
+[node name="Button" parent="testLevels" unique_id=1865714220 instance=ExtResource("6_6g8e2")]
+position = Vector2(688, -336)
+
+[node name="Button2" parent="testLevels" unique_id=2093307080 instance=ExtResource("6_6g8e2")]
+position = Vector2(904, -344)
+
+[node name="Button18" parent="testLevels" unique_id=573873292 instance=ExtResource("6_6g8e2")]
+position = Vector2(696, -160)
+
+[node name="Door12" parent="testLevels" unique_id=512316778 instance=ExtResource("7_u45fp")]
+position = Vector2(1248, -256)
+
+[node name="LevelExit3" parent="testLevels" unique_id=1909720425 instance=ExtResource("9_qhvcx")]
+position = Vector2(1248, -328)
+
+[node name="Button19" parent="testLevels" unique_id=1826775624 instance=ExtResource("6_6g8e2")]
+position = Vector2(1784, -112)
+
+[node name="Button20" parent="testLevels" unique_id=528599260 instance=ExtResource("6_6g8e2")]
+position = Vector2(1784, -112)
+
+[node name="Door13" parent="testLevels" unique_id=1374477694 instance=ExtResource("7_u45fp")]
+position = Vector2(1600, -256)
+
+[node name="Door14" parent="testLevels" unique_id=701077547 instance=ExtResource("7_u45fp")]
+position = Vector2(1952, -256)
+
+[node name="Button21" type="Sprite2D" parent="testLevels" unique_id=214679353]
+position = Vector2(1600, -376)
+texture = ExtResource("8_qhvcx")
+
+[node name="Button22" type="Sprite2D" parent="testLevels" unique_id=1569302169]
+position = Vector2(1960, -376)
+texture = ExtResource("8_qhvcx")
+
+[node name="Button23" parent="testLevels" unique_id=1323309557 instance=ExtResource("6_6g8e2")]
+position = Vector2(2904, -256)
+
+[node name="Exit2" type="Sprite2D" parent="testLevels" unique_id=1069153368]
+position = Vector2(2872, -544)
+texture = ExtResource("9_kqvnf")
+
+[node name="Exit3" type="Sprite2D" parent="testLevels" unique_id=2125394865]
+position = Vector2(3360, -512)
+texture = ExtResource("9_kqvnf")
+
+[node name="Exit4" type="Sprite2D" parent="testLevels" unique_id=375452863]
+position = Vector2(3952, -544)
+texture = ExtResource("9_kqvnf")

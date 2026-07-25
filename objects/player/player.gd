@@ -5,8 +5,10 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
 
-var recorded_inputs: Array[Vector2] = []
+var recorded_inputs: Array[Dictionary] = []
 var is_recording := false
+var interact_requested := false
+
 var last_direction := Vector2.DOWN
 var controls_enabled := true
 
@@ -14,9 +16,10 @@ var controls_enabled := true
 func _physics_process(_delta: float) -> void:
 	if not controls_enabled:
 		velocity = Vector2.ZERO
+		interact_requested = false
 		move_and_slide()
 		return
-		
+
 	var input_direction := Input.get_vector(
 		"move_left",
 		"move_right",
@@ -26,7 +29,6 @@ func _physics_process(_delta: float) -> void:
 
 	velocity = input_direction * speed
 
-
 	if input_direction != Vector2.ZERO:
 		last_direction = input_direction
 		play_walk_animation(input_direction)
@@ -35,26 +37,56 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+	# Взаимодействуем после движения, чтобы InteractionArea
+	# уже находилась в актуальной позиции.
+	if interact_requested:
+		try_interact()
+
 	if is_recording:
-		recorded_inputs.append(input_direction)
+		var frame_data := {
+			"direction": input_direction,
+			"interact": interact_requested
+		}
+
+		recorded_inputs.append(frame_data)
+
+	# Нажатие должно проиграться только на одном физическом кадре.
+	interact_requested = false
+
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not controls_enabled:
+		return
+
 	if event.is_action_pressed("interact"):
-		try_interact()
+		interact_requested = true
+
 
 func start_recording() -> void:
 	recorded_inputs.clear()
+	interact_requested = false
 	is_recording = true
 
 
-func stop_recording() -> Array[Vector2]:
+func stop_recording() -> Array[Dictionary]:
 	is_recording = false
+	interact_requested = false
 
-	var result := recorded_inputs.duplicate()
+	var result: Array[Dictionary] = recorded_inputs.duplicate(true)
 	recorded_inputs.clear()
 
 	return result
-	
+
+
+func try_interact() -> void:
+	var available_areas := interaction_area.get_overlapping_areas()
+
+	for area in available_areas:
+		if area.has_method("interact"):
+			area.interact(self)
+			return
+
+
 func play_walk_animation(direction: Vector2) -> void:
 	if abs(direction.x) > abs(direction.y):
 		if direction.x < 0:
@@ -80,16 +112,10 @@ func play_idle_animation(direction: Vector2) -> void:
 		else:
 			sprite.play("idle_front")
 
+
 func set_controls_enabled(enabled: bool) -> void:
 	controls_enabled = enabled
 
 	if not controls_enabled:
 		velocity = Vector2.ZERO
-
-func try_interact() -> void:
-	var available_areas := interaction_area.get_overlapping_areas()
-
-	for area in available_areas:
-		if area.has_method("interact"):
-			area.interact(self)
-			return
+		interact_requested = false

@@ -10,12 +10,71 @@ animations = [{
 "texture": ExtResource("1_5igvc")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"walk_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5igvc")
+}],
+"loop": 1,
+"name": &"walk_right",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(48, 58)
 
 [node name="Clone" type="CharacterBody2D" unique_id=2130983286 groups=["clones"]]
 collision_layer = 4
@@ -24,6 +83,15 @@ script = ExtResource("1_5nd7p")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=116264070]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle_back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709396000]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=417216239]
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1144305750]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_yf5fn")

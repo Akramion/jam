@@ -5,11 +5,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wja6m"]
 atlas = ExtResource("1_gn2x8")
-region = Rect2(416, 96, 32, 32)
+region = Rect2(384, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vu0gx"]
 atlas = ExtResource("1_gn2x8")
-region = Rect2(384, 96, 32, 32)
+region = Rect2(416, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -31,14 +31,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(20, 34)
+size = Vector2(32, 34)
 
-[node name="WallButton" type="Area2D" unique_id=1157880822]
+[node name="WallButton" type="Area2D" unique_id=1157880822 groups=["cycle_resettable"]]
+collision_layer = 8
+collision_mask = 6
 script = ExtResource("1_wja6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1637032531]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"on"
+animation = &"off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137404671]
 position = Vector2(0, 7)

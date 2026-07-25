@@ -1,6 +1,8 @@
 class_name WallButton
 extends Area2D
 
+@export var reset_on_cycle_restart := true
+
 signal active_changed(is_active: bool)
 signal pressed(button: WallButton)
 
@@ -112,3 +114,19 @@ func set_visual_state(state: VisualState) -> void:
 
 		VisualState.COMPLETED:
 			animated_sprite.play("on")
+
+func reset_for_new_cycle() -> void:
+	if not reset_on_cycle_restart:
+		return
+
+	active_timer.stop()
+
+	var was_active := is_active
+
+	is_active = false
+	is_completed = false
+
+	set_visual_state(VisualState.OFF)
+
+	if was_active:
+		active_changed.emit(false)
