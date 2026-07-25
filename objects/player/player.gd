@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed := 190.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var interaction_area: Area2D = $InteractionArea
 
 var recorded_inputs: Array[Vector2] = []
 var is_recording := false
@@ -37,6 +38,9 @@ func _physics_process(_delta: float) -> void:
 	if is_recording:
 		recorded_inputs.append(input_direction)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		try_interact()
 
 func start_recording() -> void:
 	recorded_inputs.clear()
@@ -81,3 +85,11 @@ func set_controls_enabled(enabled: bool) -> void:
 
 	if not controls_enabled:
 		velocity = Vector2.ZERO
+
+func try_interact() -> void:
+	var available_areas := interaction_area.get_overlapping_areas()
+
+	for area in available_areas:
+		if area.has_method("interact"):
+			area.interact(self)
+			return

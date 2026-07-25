@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bwycl3n2omgdh"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_gn2x8"]
+[ext_resource type="Script" uid="uid://b63sk840nru4a" path="res://objects/wall_button/wall_button.gd" id="1_wja6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wja6m"]
+atlas = ExtResource("1_gn2x8")
+region = Rect2(416, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0gx"]
+atlas = ExtResource("1_gn2x8")
+region = Rect2(384, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wja6m")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0gx")
+}],
+"loop": 1,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 34)
+
+[node name="WallButton" type="Area2D" unique_id=1157880822]
+script = ExtResource("1_wja6m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1637032531]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137404671]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ActiveTimer" type="Timer" parent="." unique_id=224465868]
+one_shot = true
