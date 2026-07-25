@@ -19,6 +19,7 @@ shader_parameter/tracking_speed = 0.1
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=182410341]
+visible = false
 material = SubResource("ShaderMaterial_hetct")
 anchors_preset = 15
 anchor_right = 1.0
