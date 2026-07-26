@@ -1,3 +1,247 @@
 [gd_scene format=3 uid="uid://dpwkn2fe6eq1n"]
 
-[node name="Menu" type="Node2D" unique_id=1835613719]
+[ext_resource type="Script" uid="uid://c0bfbgvsho3x1" path="res://levels/menu.gd" id="1_bvm7p"]
+[ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="1_cnlwo"]
+[ext_resource type="PackedScene" uid="uid://dbl1bwl46k3ve" path="res://levels/level_1.tscn" id="2_2fskk"]
+[ext_resource type="Texture2D" uid="uid://2eyxvdldv6wp" path="res://assets/sprites/text.png" id="2_kfbsc"]
+[ext_resource type="FontFile" uid="uid://cpk5g7tx2hqm1" path="res://assets/fonts/PixelifySans-Bold.ttf" id="3_gbx6r"]
+[ext_resource type="FontFile" uid="uid://bp5uta7xuh6k4" path="res://assets/fonts/PixelifySans-Regular.ttf" id="6_6nun2"]
+
+[sub_resource type="Gradient" id="Gradient_yf5fn"]
+offsets = PackedFloat32Array(0, 0.35, 0.6686747, 1)
+colors = PackedColorArray(0.08235294, 0.13725491, 0.16078432, 1, 0.16078432, 0.2627451, 0.2901961, 1, 0.3372549, 0.1882353, 0.35686275, 1, 0.09019608, 0.07058824, 0.12156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_yf5fn")
+fill_to = Vector2(0.5769231, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3gngh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0u6y"]
+
+[node name="Menu" type="Control" unique_id=651187836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bvm7p")
+first_level = ExtResource("2_2fskk")
+
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=728688410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Menu" type="Control" parent="." unique_id=689543084]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="Menu" unique_id=1867397138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.09019608, 0.18431373, 0.078431375)
+
+[node name="VHSOverlay" parent="Menu" unique_id=1765106576 instance=ExtResource("1_cnlwo")]
+
+[node name="TextureRect" type="TextureRect" parent="Menu" unique_id=767052872]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 110.0
+offset_right = 530.0
+offset_bottom = 220.0
+grow_horizontal = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 10)
+texture = ExtResource("2_kfbsc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Buttons" type="VBoxContainer" parent="Menu" unique_id=1399702689]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 230.0
+offset_top = 200.0
+offset_right = 410.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(0, 80)
+
+[node name="PlayButton" type="Button" parent="Menu/Buttons" unique_id=913838331]
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.9098039, 0.9098039, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6862745, 0.6627451, 0.627451, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gbx6r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "PLAY"
+
+[node name="SettingsButton" type="Button" parent="Menu/Buttons" unique_id=353826299]
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.9098039, 0.9098039, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6862745, 0.6627451, 0.627451, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gbx6r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "SETINGS"
+
+[node name="QuitButton" type="Button" parent="Menu/Buttons" unique_id=1669408057]
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.9098039, 0.9098039, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6862745, 0.6627451, 0.627451, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gbx6r")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "QUIT
+"
+
+[node name="Settings" type="Control" parent="." unique_id=892163046]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Settings" unique_id=1973356103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/CenterContainer" unique_id=24055985]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer" unique_id=1738767785]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gbx6r")
+theme_override_font_sizes/font_size = 26
+text = "SETINGS"
+horizontal_alignment = 1
+
+[node name="MasterRow" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer" unique_id=383917700]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/MasterRow" unique_id=970404541]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_6nun2")
+theme_override_font_sizes/font_size = 18
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/MasterRow" unique_id=649968130]
+custom_minimum_size = Vector2(140, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicRow" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer" unique_id=79176889]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/MusicRow" unique_id=211896912]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_6nun2")
+theme_override_font_sizes/font_size = 18
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/MusicRow" unique_id=1530493335]
+custom_minimum_size = Vector2(140, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SfxRow" type="HBoxContainer" parent="Settings/CenterContainer/VBoxContainer" unique_id=530079057]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/CenterContainer/VBoxContainer/SfxRow" unique_id=1418964218]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_6nun2")
+theme_override_font_sizes/font_size = 18
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Settings/CenterContainer/VBoxContainer/SfxRow" unique_id=2032930776]
+custom_minimum_size = Vector2(140, 30)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="Settings/CenterContainer/VBoxContainer" unique_id=678757799]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_6nun2")
+theme_override_font_sizes/font_size = 18
+text = "Fullscreen"
+
+[node name="BackButton" type="Button" parent="Settings/CenterContainer/VBoxContainer" unique_id=1028250095]
+custom_minimum_size = Vector2(180, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8666667, 0.9098039, 0.9098039, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.6862745, 0.6627451, 0.627451, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_gbx6r")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_57qmd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3gngh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
+text = "Back"

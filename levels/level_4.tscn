@@ -180,7 +180,6 @@ offset_bottom = 39.0
 metadata/_edit_use_anchors_ = true
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("8_5oqfd")]
-visible = false
 
 [node name="GameUi" parent="." unique_id=9601731 instance=ExtResource("9_sc6c1")]
 unique_name_in_owner = true

@@ -15,7 +15,7 @@ General/banks_path="res://fmod"
 [application]
 
 config/name="Jam"
-run/main_scene="uid://dbl1bwl46k3ve"
+run/main_scene="uid://dpwkn2fe6eq1n"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
