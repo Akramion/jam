@@ -12,7 +12,9 @@ extends Node
 @export var next_level: PackedScene
 @export var transition_delay := 0.5
 
+var level_is_restarting := false
 var level_is_completed := false
+var is_waiting_for_start := true
 
 var cycle_time_left: float
 var spawn_position: Vector2
@@ -24,47 +26,60 @@ func _ready() -> void:
 	if level_exit:
 		level_exit.level_completed.connect(_on_level_completed)
 
-	start_cycle.call_deferred()
-	
 	if game_ui:
-			if not game_ui.is_node_ready():
-				await game_ui.ready
+		if not game_ui.is_node_ready():
+			await game_ui.ready
 
 			game_ui.set_time(cycle_duration)
 			game_ui.set_clones(clone_count, max_clones)
+			game_ui.show_start_hint()
 			game_ui.set_hint("[E] INTERACT")
 			game_ui.set_restart_hint("[SPACE] REWIND    [R] RESTART")
+	begin_level_preview()
 	
 func _physics_process(delta: float) -> void:
-	if level_is_completed:
+	if level_is_completed or level_is_restarting or is_waiting_for_start:
 		return
-		
+
 	cycle_time_left -= delta
-	
+
 	if game_ui:
 		game_ui.set_time(cycle_time_left)
-	
+
 	if cycle_time_left <= 0:
 		finish_cycle()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if level_is_completed:
+	if level_is_completed or level_is_restarting:
 		return
-		
+
+	if is_waiting_for_start:
+		if is_start_input(event):
+			get_viewport().set_input_as_handled()
+			begin_level_play()
+
+		return
+
 	if event.is_action_pressed("restart_level"):
 		restart_level()
 		return
-		
+
 	if event.is_action_pressed("restart_recording"):
 		finish_cycle()
 
 func restart_level() -> void:
-	AudioManager.play_restart()
+	if level_is_restarting:
+		return
 
+	level_is_restarting = true
+
+	player.stop_recording()
 	player.set_controls_enabled(false)
 	player.velocity = Vector2.ZERO
 
-	await get_tree().create_timer(1).timeout
+	AudioManager.play_restart()
+
+	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
 
 func start_cycle() -> void:
@@ -78,15 +93,19 @@ func start_cycle() -> void:
 		clone.restart_playback()
 
 func finish_cycle() -> void:
-	AudioManager.play_rewind()
+	if level_is_completed or level_is_restarting:
+		return
+		
 	var recording: Array[Dictionary] = player.stop_recording()
+	
+	if clone_count >= max_clones:
+		restart_level()
+		return
+
+	AudioManager.play_rewind()
 
 	if recording.is_empty():
 		start_cycle()
-		return
-
-	if clone_count >= max_clones:
-		print("Клоны закончились")
 		return
 
 	var clone := clone_scene.instantiate()
@@ -126,3 +145,38 @@ func reset_cycle_objects() -> void:
 	for object in get_tree().get_nodes_in_group("cycle_resettable"):
 		if object.has_method("reset_for_new_cycle"):
 			object.reset_for_new_cycle()
+
+func begin_level_preview() -> void:
+	is_waiting_for_start = true
+	cycle_time_left = cycle_duration
+
+	player.velocity = Vector2.ZERO
+	player.set_controls_enabled(false)
+
+	if game_ui:
+		game_ui.set_time(cycle_duration)
+		game_ui.show_start_hint()
+
+func begin_level_play() -> void:
+	if not is_waiting_for_start:
+		return
+
+	is_waiting_for_start = false
+	player.set_controls_enabled(true)
+
+	if game_ui:
+		game_ui.hide_start_hint()
+
+	start_cycle()
+
+func is_start_input(event: InputEvent) -> bool:
+	if event is InputEventKey:
+		return event.pressed and not event.echo
+
+	if event is InputEventMouseButton:
+		return event.pressed
+
+	if event is InputEventJoypadButton:
+		return event.pressed
+
+	return false

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @onready var timer_label: Label = %TimerLabel
 @onready var clones_label: Label = %ClonesLabel
+@onready var start_label: Label = %StartLabel
 @onready var hint_label: Label = %HintLabel
 @onready var restart_label: Label = %RestartLabel
 
@@ -20,8 +21,17 @@ func set_time(time_left: float) -> void:
 
 
 func set_clones(current: int, maximum: int) -> void:
-	var remaining: int = max(maximum - current, 0)
+	var remaining := maxi(maximum - current, 0)
 	clones_label.text = "TAPE: %02d" % remaining
+
+
+func show_start_hint() -> void:
+	start_label.text = "PRESS ANY KEY"
+	start_label.visible = true
+
+
+func hide_start_hint() -> void:
+	start_label.visible = false
 
 
 func set_hint(text: String) -> void:
