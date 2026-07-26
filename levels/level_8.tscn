@@ -173,7 +173,7 @@ activation_mode = 1
 active_duration = 2.0
 
 [node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("4_lyejb")]
-position = Vector2(312, 304)
+position = Vector2(344, 96)
 
 [node name="LevelExit" parent="Ysort" unique_id=1557218980 instance=ExtResource("5_85qo6")]
 position = Vector2(480, 32)

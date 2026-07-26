@@ -1,3 +1,76 @@
 [gd_scene format=3 uid="uid://bv18tjhyqy750"]
 
-[node name="Final" type="Node2D" unique_id=1288011530]
+[ext_resource type="Texture2D" uid="uid://bep36ij8jwreo" path="res://assets/sprites/final.jpg" id="1_3eps0"]
+[ext_resource type="Script" uid="uid://dos66fymlrps8" path="res://levels/final.gd" id="1_v34y0"]
+[ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="2_au6g4"]
+[ext_resource type="PackedScene" uid="uid://dpwkn2fe6eq1n" path="res://levels/menu.tscn" id="2_kul1q"]
+[ext_resource type="FontFile" uid="uid://cpk5g7tx2hqm1" path="res://assets/fonts/PixelifySans-Bold.ttf" id="4_kul1q"]
+
+[node name="Final" type="Control" unique_id=500846643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v34y0")
+menu_scene = ExtResource("2_kul1q")
+
+[node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("2_au6g4")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1417411703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07058824, 0.0627451, 0.12156863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1713970873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3eps0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1161290637]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 320.0
+offset_top = 40.0
+offset_right = 611.0
+offset_bottom = 74.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kul1q")
+theme_override_font_sizes/font_size = 28
+text = "RECORDING COMPLETE"
+
+[node name="ThanksLabel" type="Label" parent="." unique_id=131367627]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 392.0
+offset_top = 80.0
+offset_right = 662.0
+offset_bottom = 147.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kul1q")
+theme_override_font_sizes/font_size = 20
+text = "THANKS FOR PLAYING
+"
+
+[node name="PressLabel" type="Label" parent="." unique_id=1842103531]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 440.0
+offset_top = 288.0
+offset_right = 600.0
+offset_bottom = 316.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_kul1q")
+theme_override_font_sizes/font_size = 22
+text = "PRESS ANY KEY"
