@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4c6lhk6vaacq"]
+
+[ext_resource type="Script" uid="uid://duk5nc3qd18m5" path="res://misc/button_puzzle/button_puzzle.gd" id="1_4wwgg"]
+
+[node name="ButtonPuzzle" type="Node2D" unique_id=14235559 groups=["cycle_resettable"]]
+script = ExtResource("1_4wwgg")

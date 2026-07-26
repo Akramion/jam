@@ -1,0 +1,193 @@
+[gd_scene format=4 uid="uid://d0ahohry7kuq4"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_nu44e"]
+[ext_resource type="PackedScene" uid="uid://bwycl3n2omgdh" path="res://objects/wall_button/wall_button.tscn" id="2_kx1xp"]
+[ext_resource type="PackedScene" uid="uid://bpkpo87ntubhe" path="res://objects/player/player.tscn" id="3_m516p"]
+[ext_resource type="PackedScene" uid="uid://cxauao2yg4y7i" path="res://objects/level_exit/level_exit.tscn" id="4_l3m5x"]
+[ext_resource type="PackedScene" uid="uid://dxjpyijpjy11y" path="res://objects/door/door.tscn" id="5_t207q"]
+[ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="6_g7b2g"]
+[ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="7_6s2qa"]
+[ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="8_eo5pq"]
+[ext_resource type="PackedScene" uid="uid://ctidl1d885mss" path="res://misc/game_ui/game_ui.tscn" id="9_urb8h"]
+[ext_resource type="PackedScene" uid="uid://dlr83s26iu4q5" path="res://objects/lamp/lamp.tscn" id="10_f2ri3"]
+[ext_resource type="PackedScene" uid="uid://b4c6lhk6vaacq" path="res://misc/button_puzzle/button_puzzle.tscn" id="11_4cuco"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_eslq1"]
+tile_data = PackedInt32Array(0, 327680, 7, 65536, 262144, 7, 1, 262144, 7, 65537, 327680, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqlok"]
+texture = ExtResource("1_nu44e")
+texture_region_size = Vector2i(32, 32)
+6:0/0 = 0
+7:0/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+5:6/0 = 0
+5:6/0/y_sort_origin = 32
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -3.8235703, 16, -4.779461, -16, -16, -16)
+6:6/0 = 0
+6:6/0/y_sort_origin = 32
+7:6/0 = 0
+7:6/0/y_sort_origin = 32
+8:6/0 = 0
+8:6/0/y_sort_origin = 32
+9:6/0 = 0
+9:6/0/y_sort_origin = 32
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.1422005, 16, 16, 16, 16, -16, 3.186306, -16)
+12:6/0 = 0
+14:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:7/0 = 0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+7:7/0 = 0
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, -16, 16, -16, 16, 16, -16, 16, -16, -16)
+9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+12:7/0 = 0
+12:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+14:7/0 = 0
+14:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:8/0 = 0
+1:8/0 = 0
+3:8/0 = 0
+5:8/0 = 0
+5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -5.098093, -16, -5.098093, 16, -16, 16)
+9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.1422005, -5.098091, 4.4608307, 16, 16, 16, 16, -16, 4.1422005, -16)
+11:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+5:9/0 = 0
+5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -4.779461, -4.779461, -5.4167233, -5.7353535, -16)
+6:9/0 = 0
+6:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4.779461, 16, -4.779461, 16, 16, -16, 16)
+7:9/0 = 0
+7:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4.4608307, 16, -4.4608307, 16, 16, -16, 16)
+8:9/0 = 0
+8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -5.098091, 16, -4.779461, 16, 16, -16, 16)
+9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -4.779461, 3.5049362, -4.1422005, 5.098091, -16, 16, -16, 16, 16, -16, 16)
+12:9/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+3:1/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+0:0/0 = 0
+3:10/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7nvrk"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 6
+sources/2 = SubResource("TileSetAtlasSource_oqlok")
+pattern_0 = SubResource("TileMapPattern_eslq1")
+
+[node name="Level1" type="Node2D" unique_id=1356102120]
+
+[node name="World" type="Node2D" parent="." unique_id=1161587126]
+
+[node name="Floor" type="Node2D" parent="World" unique_id=931203920]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="World/Floor" unique_id=326230700]
+tile_map_data = PackedByteArray("AAALAAMAAgACAAcAAAAMAAMAAgACAAcAAAAHAAkAAgACAAcAAAAHAAoAAgACAAcAAAAIAAoAAgACAAcAAAAJAAoAAgACAAcAAAAKAAoAAgACAAcAAAALAAoAAgACAAcAAAAMAAoAAgACAAcAAAAMAAkAAgACAAcAAAAMAAgAAgACAAcAAAAMAAcAAgACAAcAAAALAAYAAgACAAcAAAALAAUAAgACAAcAAAAMAAUAAgACAAcAAAAMAAQAAgACAAcAAAAMAAYAAgACAAcAAAAIAAkAAgACAAcAAAAJAAkAAgACAAcAAAAKAAkAAgACAAcAAAALAAkAAgACAAcAAAALAAgAAgACAAcAAAALAAQAAgACAAcAAAALAAcAAgACAAcAAAAGAAoAAgACAAcAAAAFAAoAAgACAAcAAAAEAAoAAgACAAcAAAADAAoAAgACAAcAAAADAAkAAgACAAcAAAAEAAkAAgACAAcAAAAFAAkAAgACAAcAAAAGAAkAAgACAAcAAAANAAoAAgACAAcAAAAOAAoAAgACAAcAAAAOAAkAAgACAAcAAAANAAkAAgACAAcAAAAQAAMAAgACAAcAAAAPAAMAAgACAAcAAAAOAAMAAgACAAcAAAANAAMAAgACAAcAAAANAAQAAgACAAcAAAAOAAQAAgACAAcAAAAPAAQAAgACAAcAAAAQAAQAAgACAAcAAAAQAAUAAgACAAcAAAAPAAUAAgACAAcAAAAOAAUAAgACAAcAAAANAAUAAgACAAcAAAANAAYAAgACAAcAAAAOAAYAAgACAAcAAAAPAAYAAgACAAcAAAAPAAcAAgACAAcAAAAQAAcAAgACAAcAAAAQAAYAAgACAAcAAAAQAAgAAgACAAcAAAAPAAgAAgACAAcAAAAOAAgAAgACAAcAAAANAAgAAgACAAcAAAANAAcAAgACAAcAAAAOAAcAAgACAAcAAAADAAUAAgACAAcAAAAEAAUAAgACAAcAAAAFAAUAAgACAAcAAAAGAAUAAgACAAcAAAAFAAYAAgACAAcAAAAFAAcAAgACAAcAAAAGAAYAAgACAAcAAAAGAAcAAgACAAcAAAADAAYAAgACAAcAAAADAAcAAgACAAcAAAAEAAYAAgACAAcAAAAEAAcAAgACAAcAAAADAAgAAgACAAcAAAAEAAgAAgACAAcAAAAFAAgAAgACAAcAAAAGAAgAAgACAAcAAAADAAQAAgACAAcAAAAEAAQAAgACAAcAAAAFAAQAAgACAAcAAAAGAAQAAgACAAcAAAAPAAoAAgACAAcAAAAQAAoAAgACAAcAAAAQAAkAAgACAAcAAAAPAAkAAgACAAcAAAAKAAgAAgACAAcAAAAJAAgAAgACAAcAAAAIAAgAAgACAAcAAAAHAAgAAgACAAcAAAACAAgAAgACAAcAAAABAAgAAgACAAcAAAABAAkAAgACAAcAAAABAAoAAgACAAcAAAACAAoAAgACAAcAAAACAAkAAgACAAcAAAABAAcAAgACAAcAAAABAAYAAgACAAcAAAABAAUAAgACAAcAAAABAAQAAgACAAcAAAABAAMAAgACAAcAAAACAAMAAgACAAcAAAADAAMAAgACAAcAAAAEAAMAAgACAAcAAAACAAcAAgACAAcAAAACAAYAAgACAAcAAAACAAUAAgACAAcAAAACAAQAAgACAAcAAAABAAIAAgADAAgAAAACAAIAAgADAAgAAAADAAIAAgADAAgAAAAEAAIAAgADAAgAAAAHAAcAAgACAAcAAAAIAAcAAgACAAcAAAAJAAcAAgACAAcAAAAKAAcAAgACAAcAAAAQAAIAAgACAAcAAAAQAAEAAgACAAcAAAAPAAEAAgACAAcAAAAPAAIAAgACAAcAAAAKAAQAAgACAAcAAAAJAAQAAgACAAcAAAAIAAQAAgACAAcAAAAHAAQAAgACAAcAAAAHAAUAAgACAAcAAAAHAAYAAgACAAcAAAAIAAYAAgACAAcAAAAJAAYAAgACAAcAAAAKAAYAAgACAAcAAAAKAAUAAgACAAcAAAAJAAUAAgACAAcAAAAIAAUAAgACAAcAAAAKAAMAAgACAAcAAAAJAAMAAgACAAcAAAAIAAMAAgAHAAgAAAAHAAMAAgAGAAgAAAAGAAMAAgACAAcAAAAFAAMAAgACAAcAAAAFAAIAAgACAAcAAAAGAAIAAgACAAcAAAAHAAIAAgAGAAgAAAAIAAIAAgAHAAgAAAAJAAIAAgACAAcAAAAKAAIAAgACAAcAAAALAAIAAgACAAcAAAAMAAIAAgACAAcAAAANAAIAAgACAAcAAAAOAAIAAgACAAcAAAAOAAEAAgACAAcAAAANAAEAAgACAAcAAAAMAAEAAgACAAcAAAALAAEAAgACAAcAAAAKAAEAAgACAAcAAAAJAAEAAgACAAcAAAAIAAEAAgACAAcAAAAHAAEAAgACAAcAAAAGAAEAAgACAAcAAAAFAAEAAgACAAcAAAARAAgAAgACAAkAAAASAAgAAgADAAkAAAARAAkAAgACAAkAAAASAAkAAgADAAkAAAARAAoAAgACAAkAAAASAAoAAgADAAkAAAATAAoAAgADAAkAAAATAAkAAgADAAkAAAATAAgAAgADAAkAAAARAAUAAgACAAkAAAASAAUAAgADAAkAAAARAAQAAgADAAkAAAASAAQAAgADAAkAAAATAAUAAgADAAkAAAATAAQAAgADAAkAAAATAAcAAgADAAkAAAATAAYAAgADAAkAAAASAAYAAgADAAkAAAARAAYAAgADAAkAAAARAAcAAgADAAkAAAASAAcAAgADAAkAAAATAAMAAgADAAkAAAATAAIAAgADAAkAAAATAAEAAgADAAkAAAASAAEAAgADAAkAAAARAAEAAgADAAkAAAARAAIAAgADAAkAAAASAAIAAgADAAkAAAASAAMAAgADAAkAAAARAAMAAgADAAkAAAA=")
+tile_set = SubResource("TileSet_7nvrk")
+metadata/_edit_lock_ = true
+
+[node name="Ysort" type="Node2D" parent="." unique_id=1821580409]
+y_sort_enabled = true
+
+[node name="WallButton" parent="Ysort" unique_id=1157880822 instance=ExtResource("2_kx1xp")]
+position = Vector2(72, 56)
+activation_mode = 1
+active_duration = 2.0
+
+[node name="WallButton2" parent="Ysort" unique_id=285370119 instance=ExtResource("2_kx1xp")]
+position = Vector2(120, 56)
+activation_mode = 1
+active_duration = 2.0
+
+[node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("3_m516p")]
+position = Vector2(224, 306)
+
+[node name="LevelExit" parent="Ysort" unique_id=1557218980 instance=ExtResource("4_l3m5x")]
+position = Vector2(256, 32)
+
+[node name="Walls2" type="TileMapLayer" parent="Ysort" unique_id=873359193]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAAoAAgAFAAkAAAACAAoAAgAGAAkAAAADAAoAAgAGAAkAAAAEAAoAAgAGAAkAAAAFAAoAAgAGAAkAAAAGAAoAAgAGAAkAAAAHAAoAAgAGAAkAAAAIAAoAAgAGAAkAAAAJAAoAAgAGAAkAAAAKAAoAAgAGAAkAAAALAAoAAgAGAAkAAAAOAAoAAgAGAAkAAAAPAAoAAgAGAAkAAAAQAAoAAgAJAAkAAAANAAoAAgAGAAkAAAAMAAoAAgAGAAkAAAABAAkAAgAFAAgAAAABAAgAAgAFAAgAAAABAAcAAgAFAAgAAAABAAYAAgAFAAgAAAABAAUAAgAFAAgAAAABAAQAAgAFAAgAAAABAAMAAgAFAAgAAAABAAIAAgAFAAgAAAABAAEAAgAFAAcAAAABAAAAAgAFAAYAAAACAAAAAgAGAAYAAAACAAEAAgAGAAcAAAADAAAAAgAHAAYAAAADAAEAAgAHAAcAAAAEAAAAAgAJAAYAAAAEAAEAAgAJAAcAAAAEAAIAAgAJAAgAAAAEAAMAAgAJAAgAAAAEAAQAAgAJAAgAAAAEAAUAAgAJAAgAAAAEAAYAAgAJAAgAAAAFAAcAAgAFAAcAAAAFAAYAAgAFAAYAAAAEAAcAAgAJAAgAAAAGAAYAAgAGAAYAAAAHAAYAAgAGAAYAAAAIAAYAAgAGAAYAAAAJAAYAAgAGAAYAAAAKAAYAAgAGAAYAAAALAAYAAgAGAAYAAAAMAAYAAgAGAAYAAAAGAAcAAgAGAAcAAAAHAAcAAgAGAAcAAAAIAAcAAgAGAAcAAAAJAAcAAgAGAAcAAAAKAAcAAgAGAAcAAAALAAcAAgAGAAcAAAAMAAcAAgAGAAcAAAANAAcAAgAHAAcAAAANAAYAAgAHAAYAAAAQAAYAAgAJAAYAAAAQAAcAAgAJAAcAAAAQAAMAAgAJAAcAAAAQAAIAAgAJAAYAAAANAAIAAgAGAAYAAAANAAMAAgAGAAcAAAAOAAIAAgAHAAYAAAAOAAMAAgAHAAcAAAAPAAIAAgAIAAYAAAAPAAMAAgAIAAcAAAAKAAIAAgAGAAYAAAAKAAMAAgAGAAcAAAALAAIAAgAHAAYAAAALAAMAAgAHAAcAAAAMAAIAAgAIAAYAAAAMAAMAAgAIAAcAAAAJAAIAAgAIAAYAAAAJAAMAAgAIAAcAAAAFAAIAAgAFAAYAAAAFAAMAAgAFAAcAAAAGAAIAAgAGAAYAAAAGAAMAAgAGAAcAAAANAAAAAgAGAAYAAAANAAEAAgAGAAcAAAAOAAAAAgAHAAYAAAAOAAEAAgAHAAcAAAAPAAAAAgAIAAYAAAAPAAEAAgAIAAcAAAAKAAAAAgAGAAYAAAAKAAEAAgAGAAcAAAALAAAAAgAHAAYAAAALAAEAAgAHAAcAAAAMAAAAAgAIAAYAAAAMAAEAAgAIAAcAAAAJAAAAAgAIAAYAAAAJAAEAAgAIAAcAAAAFAAAAAgAFAAYAAAAFAAEAAgAFAAcAAAAGAAAAAgAGAAYAAAAGAAEAAgAGAAcAAAAQAAUAAgAJAAgAAAAQAAQAAgAJAAgAAAAQAAAAAgAHAAYAAAAQAAEAAgAHAAcAAAARAAAAAgAHAAYAAAARAAEAAgAHAAcAAAASAAAAAgAIAAYAAAASAAEAAgAIAAcAAAATAAAAAgAJAAYAAAATAAEAAgAJAAcAAAARAAIAAgAGAAYAAAASAAIAAgAGAAYAAAATAAIAAgAJAAYAAAARAAMAAgAHAAcAAAASAAMAAgAIAAcAAAATAAMAAgAJAAcAAAARAAoAAgAGAAkAAAASAAoAAgAHAAkAAAATAAoAAgAJAAkAAAATAAkAAgAJAAgAAAATAAgAAgAJAAgAAAARAAYAAgAHAAYAAAARAAcAAgAHAAcAAAASAAYAAgAIAAYAAAASAAcAAgAIAAcAAAATAAYAAgAJAAYAAAATAAcAAgAJAAcAAAATAAUAAgAJAAgAAAATAAQAAgAJAAgAAAAQAAgAAgAJAAgAAAAQAAkAAgAJAAgAAAA=")
+tile_set = SubResource("TileSet_7nvrk")
+metadata/_edit_lock_ = true
+
+[node name="ClonesContainer" type="Node2D" parent="Ysort" unique_id=1078112807]
+
+[node name="Door" parent="Ysort" unique_id=331063696 instance=ExtResource("5_t207q")]
+position = Vector2(480, 240)
+starts_open = true
+
+[node name="Door3" parent="Ysort" unique_id=1413716858 instance=ExtResource("5_t207q")]
+position = Vector2(256, 112)
+
+[node name="Gameplay" type="Node2D" parent="Ysort" unique_id=2035412187]
+
+[node name="TimelineManager" parent="Ysort/Gameplay" unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "game_ui", "level_exit") instance=ExtResource("6_g7b2g")]
+cycle_duration = 7.0
+max_clones = 1
+player = NodePath("../../Player")
+clone_scene = ExtResource("7_6s2qa")
+clones_container = NodePath("../..")
+game_ui = NodePath("../../../GameUi")
+level_exit = NodePath("../../LevelExit")
+
+[node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
+z_index = 3
+
+[node name="Label" type="Label" parent="Ysort/Gameplay/UI" unique_id=1433807853]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("8_eo5pq")]
+visible = false
+
+[node name="GameUi" parent="." unique_id=9601731 instance=ExtResource("9_urb8h")]
+unique_name_in_owner = true
+
+[node name="Lamp" parent="." unique_id=2032106098 instance=ExtResource("10_f2ri3")]
+position = Vector2(208, 96)
+
+[node name="Lamp2" parent="." unique_id=2078048140 instance=ExtResource("10_f2ri3")]
+position = Vector2(304, 96)
+
+[node name="ButtonPuzzle" parent="." unique_id=14235559 node_paths=PackedStringArray("buttons", "lamps", "door") instance=ExtResource("11_4cuco")]
+buttons = [NodePath("../Ysort/WallButton"), NodePath("../Ysort/WallButton2")]
+lamps = [NodePath("../Lamp"), NodePath("../Lamp2")]
+door = NodePath("../Ysort/Door3")

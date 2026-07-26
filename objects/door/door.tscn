@@ -51,8 +51,10 @@ autoplay = "closed"
 
 [node name="OpenPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1801372403]
 stream = ExtResource("3_ln868")
+volume_db = -4.0
 bus = &"SFX"
 
 [node name="ClosePlayer" type="AudioStreamPlayer2D" parent="." unique_id=863391966]
 stream = ExtResource("4_58wfd")
+volume_db = -4.0
 bus = &"SFX"

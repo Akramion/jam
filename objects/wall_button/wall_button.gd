@@ -65,6 +65,7 @@ func activate_temporarily() -> void:
 	if is_active:
 		return
 
+	press_sound.play()
 	is_active = true
 	set_visual_state(VisualState.PENDING)
 

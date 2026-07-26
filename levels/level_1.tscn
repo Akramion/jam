@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bpkpo87ntubhe" path="res://objects/player/player.tscn" id="4_aerfg"]
 [ext_resource type="PackedScene" uid="uid://dxjpyijpjy11y" path="res://objects/door/door.tscn" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="7_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://bv8l7nb0dkl1h" path="res://levels/level_2.tscn" id="8_08mmt"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="8_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://ctidl1d885mss" path="res://misc/game_ui/game_ui.tscn" id="9_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="9_lrvbd"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_eslq1"]
@@ -115,8 +117,9 @@ tile_map_data = PackedByteArray("AAAKAAAAAgACAAcAAAAJAAAAAgACAAcAAAAIAAAAAgACAAc
 tile_set = SubResource("TileSet_7nvrk")
 metadata/_edit_lock_ = true
 
-[node name="Button" parent="." unique_id=76371632 instance=ExtResource("3_5ot28")]
+[node name="Button" parent="." unique_id=76371632 node_paths=PackedStringArray("targets") instance=ExtResource("3_5ot28")]
 position = Vector2(320, 304)
+targets = [NodePath("../Ysort/Door")]
 
 [node name="Ysort" type="Node2D" parent="." unique_id=1821580409]
 y_sort_enabled = true
@@ -140,12 +143,14 @@ position = Vector2(320, 144)
 
 [node name="Gameplay" type="Node2D" parent="Ysort" unique_id=2035412187]
 
-[node name="TimelineManager" parent="Ysort/Gameplay" unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "timer_label", "level_exit") instance=ExtResource("7_vjtdm")]
+[node name="TimelineManager" parent="Ysort/Gameplay" unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "game_ui", "level_exit") instance=ExtResource("7_vjtdm")]
+max_clones = 1
 player = NodePath("../../Player")
 clone_scene = ExtResource("8_bgw3c")
 clones_container = NodePath("../..")
-timer_label = NodePath("../UI/Label")
+game_ui = NodePath("../../../GameUi")
 level_exit = NodePath("../../LevelExit")
+next_level = ExtResource("8_08mmt")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3
@@ -159,3 +164,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("9_lrvbd")]
 visible = false
+
+[node name="GameUi" parent="." unique_id=9601731 instance=ExtResource("9_3sk1a")]
+unique_name_in_owner = true

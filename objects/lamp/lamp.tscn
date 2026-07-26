@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dlr83s26iu4q5"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_0fjly"]
+[ext_resource type="Script" uid="uid://8jruj0ld8irt" path="res://objects/lamp/lamp.gd" id="1_awlx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awlx5"]
+atlas = ExtResource("1_0fjly")
+region = Rect2(352, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5kl1"]
+atlas = ExtResource("1_0fjly")
+region = Rect2(320, 352, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7edi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awlx5")
+}],
+"loop": 1,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5kl1")
+}],
+"loop": 1,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Lamp" type="Node2D" unique_id=2032106098]
+script = ExtResource("1_awlx5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497114751]
+sprite_frames = SubResource("SpriteFrames_k7edi")
+animation = &"off"
+
+[node name="BlinkTimer" type="Timer" parent="." unique_id=185365279]

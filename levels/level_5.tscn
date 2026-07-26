@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dxjpyijpjy11y" path="res://objects/door/door.tscn" id="5_gci8k"]
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="6_gder6"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="7_hv08k"]
+[ext_resource type="PackedScene" uid="uid://d0ahohry7kuq4" path="res://levels/level_6.tscn" id="8_ij65d"]
+[ext_resource type="PackedScene" uid="uid://ctidl1d885mss" path="res://misc/game_ui/game_ui.tscn" id="9_8vr3t"]
 [ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="9_brp6y"]
 [ext_resource type="PackedScene" uid="uid://bwycl3n2omgdh" path="res://objects/wall_button/wall_button.tscn" id="9_ldpug"]
+[ext_resource type="PackedScene" uid="uid://dlr83s26iu4q5" path="res://objects/lamp/lamp.tscn" id="10_8vr3t"]
+[ext_resource type="PackedScene" uid="uid://b4c6lhk6vaacq" path="res://misc/button_puzzle/button_puzzle.tscn" id="11_a58qw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_eslq1"]
 tile_data = PackedInt32Array(0, 327680, 7, 65536, 262144, 7, 1, 262144, 7, 65537, 327680, 7)
@@ -120,9 +124,13 @@ y_sort_enabled = true
 
 [node name="WallButton" parent="Ysort" unique_id=1157880822 instance=ExtResource("9_ldpug")]
 position = Vector2(512, 152)
+activation_mode = 1
+active_duration = 2.0
 
 [node name="WallButton2" parent="Ysort" unique_id=285370119 instance=ExtResource("9_ldpug")]
 position = Vector2(392, 152)
+activation_mode = 1
+active_duration = 2.0
 
 [node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("3_a58qw")]
 position = Vector2(160, 312)
@@ -132,7 +140,7 @@ position = Vector2(160, 128)
 
 [node name="Walls2" type="TileMapLayer" parent="Ysort" unique_id=873359193]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAHAAoAAgAIAAkAAAAIAAoAAgAGAAkAAAAJAAoAAgAGAAkAAAAKAAoAAgAGAAkAAAALAAoAAgAGAAkAAAAMAAoAAgAIAAkAAAANAAoAAgAIAAkAAAAOAAoAAgAJAAkAAAAGAAoAAgAIAAkAAAAFAAoAAgAIAAkAAAAEAAoAAgAIAAkAAAADAAoAAgAFAAkAAAADAAkAAgAFAAgAAAADAAcAAgAFAAYAAAADAAgAAgAFAAcAAAAQAAcAAgAJAAYAAAAPAAcAAgAIAAYAAAAOAAcAAgAJAAYAAAANAAcAAgAHAAYAAAANAAgAAgAHAAcAAAAOAAgAAgAJAAcAAAAPAAgAAgAGAAcAAAAQAAYAAgAJAAgAAAAQAAUAAgAJAAgAAAAGAAcAAgAJAAYAAAAGAAgAAgAJAAcAAAAHAAcAAgAHAAYAAAAIAAcAAgAHAAYAAAAJAAcAAgAHAAYAAAAKAAcAAgAJAAYAAAAKAAYAAgAJAAgAAAAKAAUAAgAJAAgAAAAJAAgAAgAIAAcAAAAIAAgAAgAIAAcAAAAHAAgAAgAIAAcAAAAKAAgAAgAJAAcAAAANAAMAAgAIAAYAAAAMAAMAAgAIAAYAAAAMAAQAAgAHAAcAAAANAAQAAgAHAAcAAAALAAMAAgAFAAYAAAALAAQAAgAFAAcAAAAKAAQAAgAJAAgAAAAKAAMAAgAJAAgAAAADAAYAAgAFAAcAAAADAAUAAgAFAAYAAAAGAAYAAgAJAAcAAAAGAAUAAgAJAAYAAAADAAQAAgAFAAcAAAADAAMAAgAFAAYAAAAGAAQAAgAJAAcAAAAGAAMAAgAJAAYAAAAOAAkAAgAJAAgAAAAQAAgAAgAJAAcAAAAOAAMAAgAGAAYAAAAPAAMAAgAGAAYAAAAQAAMAAgAJAAYAAAAQAAQAAgAJAAcAAAAOAAQAAgAHAAcAAAAPAAQAAgAHAAcAAAA=")
+tile_map_data = PackedByteArray("AAAHAAoAAgAIAAkAAAAIAAoAAgAGAAkAAAAJAAoAAgAGAAkAAAAKAAoAAgAGAAkAAAALAAoAAgAGAAkAAAAMAAoAAgAIAAkAAAANAAoAAgAIAAkAAAAOAAoAAgAJAAkAAAAGAAoAAgAIAAkAAAAFAAoAAgAIAAkAAAAEAAoAAgAIAAkAAAADAAoAAgAFAAkAAAADAAkAAgAFAAgAAAADAAcAAgAFAAYAAAADAAgAAgAFAAcAAAAQAAcAAgAJAAYAAAAPAAcAAgAIAAYAAAAOAAcAAgAJAAYAAAANAAcAAgAHAAYAAAANAAgAAgAHAAcAAAAOAAgAAgAJAAcAAAAPAAgAAgAGAAcAAAAQAAYAAgAJAAgAAAAQAAUAAgAJAAgAAAAGAAcAAgAJAAYAAAAGAAgAAgAJAAcAAAAHAAcAAgAHAAYAAAAIAAcAAgAHAAYAAAAJAAcAAgAHAAYAAAAKAAcAAgAJAAYAAAAKAAYAAgAJAAgAAAAKAAUAAgAJAAgAAAAJAAgAAgAIAAcAAAAIAAgAAgAIAAcAAAAHAAgAAgAIAAcAAAAKAAgAAgAJAAcAAAANAAMAAgAIAAYAAAAMAAMAAgAIAAYAAAAMAAQAAgAHAAcAAAANAAQAAgAHAAcAAAALAAMAAgAFAAYAAAALAAQAAgAFAAcAAAAKAAQAAgAJAAgAAAAKAAMAAgAJAAgAAAADAAQAAgAFAAcAAAADAAMAAgAFAAYAAAAGAAQAAgAJAAcAAAAGAAMAAgAJAAYAAAAOAAkAAgAJAAgAAAAQAAgAAgAJAAcAAAAOAAMAAgAGAAYAAAAPAAMAAgAGAAYAAAAQAAMAAgAJAAYAAAAQAAQAAgAJAAcAAAAOAAQAAgAHAAcAAAAPAAQAAgAHAAcAAAAGAAYAAgAJAAgAAAAGAAUAAgAJAAgAAAADAAYAAgAFAAgAAAADAAUAAgAFAAgAAAA=")
 tile_set = SubResource("TileSet_7nvrk")
 metadata/_edit_lock_ = true
 
@@ -145,18 +153,16 @@ position = Vector2(160, 272)
 position = Vector2(384, 272)
 starts_open = true
 
-[node name="Door2" parent="Ysort" unique_id=198749301 instance=ExtResource("5_gci8k")]
-position = Vector2(160, 208)
-
 [node name="Gameplay" type="Node2D" parent="Ysort" unique_id=2035412187]
 
-[node name="TimelineManager" parent="Ysort/Gameplay" unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "timer_label", "level_exit") instance=ExtResource("6_gder6")]
-cycle_duration = 8.0
+[node name="TimelineManager" parent="Ysort/Gameplay" unique_id=2001771932 node_paths=PackedStringArray("player", "clones_container", "game_ui", "level_exit") instance=ExtResource("6_gder6")]
+max_clones = 0
 player = NodePath("../../Player")
 clone_scene = ExtResource("7_hv08k")
 clones_container = NodePath("../..")
-timer_label = NodePath("../UI/Label")
+game_ui = NodePath("../../../GameUi")
 level_exit = NodePath("../../LevelExit")
+next_level = ExtResource("8_ij65d")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3
@@ -170,3 +176,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("9_brp6y")]
 visible = false
+
+[node name="GameUi" parent="." unique_id=9601731 instance=ExtResource("9_8vr3t")]
+unique_name_in_owner = true
+
+[node name="Lamp" parent="." unique_id=2032106098 instance=ExtResource("10_8vr3t")]
+position = Vector2(118, 256)
+
+[node name="Lamp2" parent="." unique_id=2078048140 instance=ExtResource("10_8vr3t")]
+position = Vector2(202, 256)
+
+[node name="ButtonPuzzle" parent="." unique_id=14235559 node_paths=PackedStringArray("buttons", "lamps", "door") instance=ExtResource("11_a58qw")]
+buttons = [NodePath("../Ysort/WallButton"), NodePath("../Ysort/WallButton2")]
+lamps = [NodePath("../Lamp"), NodePath("../Lamp2")]
+door = NodePath("../Ysort/Door")
