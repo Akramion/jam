@@ -7,12 +7,12 @@
 [ext_resource type="FontFile" uid="uid://cpk5g7tx2hqm1" path="res://assets/fonts/PixelifySans-Bold.ttf" id="3_gbx6r"]
 [ext_resource type="FontFile" uid="uid://bp5uta7xuh6k4" path="res://assets/fonts/PixelifySans-Regular.ttf" id="6_6nun2"]
 
-[sub_resource type="Gradient" id="Gradient_yf5fn"]
+[sub_resource type="Gradient" id="Gradient_6nun2"]
 offsets = PackedFloat32Array(0, 0.35, 0.6686747, 1)
 colors = PackedColorArray(0.08235294, 0.13725491, 0.16078432, 1, 0.16078432, 0.2627451, 0.2901961, 1, 0.3372549, 0.1882353, 0.35686275, 1, 0.09019608, 0.07058824, 0.12156863, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
-gradient = SubResource("Gradient_yf5fn")
+gradient = SubResource("Gradient_6nun2")
 fill_to = Vector2(0.5769231, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
@@ -121,7 +121,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_yf5fn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_57qmd")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_3gngh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d0u6y")
-text = "SETINGS"
+text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="Menu/Buttons" unique_id=1669408057]
 custom_minimum_size = Vector2(180, 36)

@@ -10,6 +10,7 @@ enum State {
 @export var blink_interval := 0.25
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var point_light: PointLight2D = $PointLight2D
 @onready var blink_timer: Timer = $BlinkTimer
 
 var current_state := State.OFF
@@ -21,7 +22,7 @@ func _ready() -> void:
 	blink_timer.one_shot = false
 	blink_timer.timeout.connect(_on_blink_timer_timeout)
 
-	set_state(State.OFF)
+	_apply_lamp_visual(false)
 
 
 func set_state(new_state: State) -> void:
@@ -33,15 +34,17 @@ func set_state(new_state: State) -> void:
 
 	match current_state:
 		State.OFF:
-			animated_sprite.play("off")
+			blink_is_on = false
+			_apply_lamp_visual(false)
 
 		State.BLINKING:
 			blink_is_on = true
-			animated_sprite.play("on")
+			_apply_lamp_visual(true)
 			blink_timer.start()
 
 		State.ON:
-			animated_sprite.play("on")
+			blink_is_on = true
+			_apply_lamp_visual(true)
 
 
 func _on_blink_timer_timeout() -> void:
@@ -49,4 +52,9 @@ func _on_blink_timer_timeout() -> void:
 		return
 
 	blink_is_on = not blink_is_on
-	animated_sprite.play("on" if blink_is_on else "off")
+	_apply_lamp_visual(blink_is_on)
+
+
+func _apply_lamp_visual(is_on: bool) -> void:
+	animated_sprite.play("on" if is_on else "off")
+	point_light.enabled = is_on

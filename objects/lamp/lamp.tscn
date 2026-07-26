@@ -30,6 +30,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_awlx5"]
+offsets = PackedFloat32Array(0, 0.6506024)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.78039217)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_awlx5")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5043478, 0.50869566)
+
 [node name="Lamp" type="Node2D" unique_id=2032106098]
 script = ExtResource("1_awlx5")
 
@@ -38,3 +49,8 @@ sprite_frames = SubResource("SpriteFrames_k7edi")
 animation = &"off"
 
 [node name="BlinkTimer" type="Timer" parent="." unique_id=185365279]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1162512994]
+color = Color(1, 0.60784316, 0.2901961, 1)
+energy = 2.5
+texture = SubResource("GradientTexture2D_g4v7s")

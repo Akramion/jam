@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://sc17o64ixgbi" path="res://decorations/chair.tscn" id="9_fksli"]
 [ext_resource type="PackedScene" uid="uid://ctidl1d885mss" path="res://misc/game_ui/game_ui.tscn" id="10_wljtq"]
 [ext_resource type="PackedScene" uid="uid://dlr83s26iu4q5" path="res://objects/lamp/lamp.tscn" id="11_lxi47"]
+[ext_resource type="PackedScene" uid="uid://bv18tjhyqy750" path="res://levels/final.tscn" id="11_lyejb"]
 [ext_resource type="PackedScene" uid="uid://b4c6lhk6vaacq" path="res://misc/button_puzzle/button_puzzle.tscn" id="12_anmmm"]
 [ext_resource type="PackedScene" uid="uid://v2m2hb4j5tsd" path="res://decorations/frog.tscn" id="14_lyejb"]
 
@@ -173,7 +174,7 @@ activation_mode = 1
 active_duration = 2.0
 
 [node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("4_lyejb")]
-position = Vector2(344, 96)
+position = Vector2(512, 288)
 
 [node name="LevelExit" parent="Ysort" unique_id=1557218980 instance=ExtResource("5_85qo6")]
 position = Vector2(480, 32)
@@ -207,6 +208,7 @@ clone_scene = ExtResource("8_ody6k")
 clones_container = NodePath("../..")
 game_ui = NodePath("../../../GameUi")
 level_exit = NodePath("../../LevelExit")
+next_level = ExtResource("11_lyejb")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3
@@ -222,6 +224,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(544, 152)
 
 [node name="VHSOverlay" parent="." unique_id=1765106576 instance=ExtResource("9_f41nr")]
+position = Vector2(8, 0)
 
 [node name="GameUi" parent="." unique_id=9601731 instance=ExtResource("10_wljtq")]
 unique_name_in_owner = true
