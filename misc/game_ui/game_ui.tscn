@@ -32,6 +32,7 @@ offset_transform_position = Vector2(-32, -32)
 [node name="ClonesLabel" type="Label" parent="Root/TopCenterContainer" unique_id=298527141]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8352941, 0.8784314, 0.8745098, 1)
 theme_override_font_sizes/font_size = 24
 text = "00:00:10"
 
@@ -49,6 +50,7 @@ offset_transform_position = Vector2(-32, 16)
 [node name="TimerLabel" type="Label" parent="Root/TopCenterContainer2" unique_id=1808667710]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8352941, 0.8784314, 0.8745098, 1)
 theme_override_font_sizes/font_size = 24
 text = "TAPE: 03"
 
@@ -69,11 +71,14 @@ layout_mode = 2
 [node name="StartLabel" type="Label" parent="Root/LeftBottonMargin/VBoxContainer" unique_id=1860247905]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8352941, 0.8784314, 0.8745098, 1)
 
 [node name="HintLabel" type="Label" parent="Root/LeftBottonMargin/VBoxContainer" unique_id=164672198]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8352941, 0.8784314, 0.8745098, 1)
 
 [node name="RestartLabel" type="Label" parent="Root/LeftBottonMargin/VBoxContainer" unique_id=2011621562]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8352941, 0.8784314, 0.8745098, 1)

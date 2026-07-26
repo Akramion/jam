@@ -24,4 +24,5 @@ bus = &"Level"
 
 [node name="LevelCompletePlayer" type="AudioStreamPlayer2D" parent="." unique_id=2082115259]
 stream = ExtResource("5_mdvqg")
+volume_db = 4.0
 bus = &"Level"

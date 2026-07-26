@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://di3s24rpmw7uw" path="res://objects/timeline_manager/timeline_manager.tscn" id="6_g7b2g"]
 [ext_resource type="PackedScene" uid="uid://dcieykumq7o5x" path="res://objects/clone/clone.tscn" id="7_6s2qa"]
 [ext_resource type="PackedScene" uid="uid://id6w7tjrjogo" path="res://misc/overlay/vhs_overlay.tscn" id="8_eo5pq"]
+[ext_resource type="PackedScene" uid="uid://w6snjch8emvv" path="res://levels/level_7.tscn" id="8_kx1xp"]
 [ext_resource type="PackedScene" uid="uid://ctidl1d885mss" path="res://misc/game_ui/game_ui.tscn" id="9_urb8h"]
 [ext_resource type="PackedScene" uid="uid://dlr83s26iu4q5" path="res://objects/lamp/lamp.tscn" id="10_f2ri3"]
 [ext_resource type="PackedScene" uid="uid://b4c6lhk6vaacq" path="res://misc/button_puzzle/button_puzzle.tscn" id="11_4cuco"]
@@ -164,6 +165,7 @@ clone_scene = ExtResource("7_6s2qa")
 clones_container = NodePath("../..")
 game_ui = NodePath("../../../GameUi")
 level_exit = NodePath("../../LevelExit")
+next_level = ExtResource("8_kx1xp")
 
 [node name="UI" type="Node2D" parent="Ysort/Gameplay" unique_id=1237019473]
 z_index = 3
