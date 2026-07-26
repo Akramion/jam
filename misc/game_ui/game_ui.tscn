@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://ctidl1d885mss"]
+
+[ext_resource type="Theme" uid="uid://scbsxexh6wus" path="res://assets/themes/theme_ui.tres" id="1_7q3cl"]
+[ext_resource type="Script" uid="uid://dia02f7h7tyer" path="res://misc/game_ui/game_ui.gd" id="1_8lx8b"]
+
+[node name="GameUi" type="CanvasLayer" unique_id=9601731]
+script = ExtResource("1_8lx8b")
+
+[node name="Root" type="Control" parent="." unique_id=1799409750]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7q3cl")
+
+[node name="TopCenterContainer" type="MarginContainer" parent="Root" unique_id=2078151901]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-32, -32)
+
+[node name="ClonesLabel" type="Label" parent="Root/TopCenterContainer" unique_id=298527141]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "00:00:10"
+
+[node name="TopCenterContainer2" type="MarginContainer" parent="Root" unique_id=1418045222]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_bottom = 40.0
+grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-32, 16)
+
+[node name="TimerLabel" type="Label" parent="Root/TopCenterContainer2" unique_id=1808667710]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "TAPE: 03"
+
+[node name="LeftBottonMargin" type="MarginContainer" parent="Root" unique_id=124458999]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(32, -32)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/LeftBottonMargin" unique_id=52679082]
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="Root/LeftBottonMargin/VBoxContainer" unique_id=164672198]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RestartLabel" type="Label" parent="Root/LeftBottonMargin/VBoxContainer" unique_id=2011621562]
+unique_name_in_owner = true
+layout_mode = 2

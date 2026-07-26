@@ -6,7 +6,7 @@ extends Node
 @export var player: CharacterBody2D
 @export var clone_scene: PackedScene
 @export var clones_container: Node
-@export var timer_label: Label
+@export var game_ui: GameUI
 
 @export var level_exit: Area2D
 @export var next_level: PackedScene
@@ -20,12 +20,20 @@ var clone_count := 0
 
 func _ready() -> void:
 	spawn_position = player.global_position
-	AudioManager.set_menu_mode(true)
 
 	if level_exit:
 		level_exit.level_completed.connect(_on_level_completed)
 
 	start_cycle.call_deferred()
+	
+	if game_ui:
+			if not game_ui.is_node_ready():
+				await game_ui.ready
+
+			game_ui.set_time(cycle_duration)
+			game_ui.set_clones(clone_count, max_clones)
+			game_ui.set_hint("[E] INTERACT")
+			game_ui.set_restart_hint("[SPACE] REWIND    [R] RESTART")
 	
 func _physics_process(delta: float) -> void:
 	if level_is_completed:
@@ -33,8 +41,8 @@ func _physics_process(delta: float) -> void:
 		
 	cycle_time_left -= delta
 	
-	if timer_label:
-		timer_label.text = "%.1f" % max(cycle_time_left, 0.0)
+	if game_ui:
+		game_ui.set_time(cycle_time_left)
 	
 	if cycle_time_left <= 0:
 		finish_cycle()
@@ -87,6 +95,10 @@ func finish_cycle() -> void:
 	clone.setup(recording, spawn_position)
 
 	clone_count += 1
+	
+	if game_ui:
+		game_ui.set_clones(clone_count, max_clones)
+		
 	start_cycle()
 
 func _on_level_completed() -> void:
