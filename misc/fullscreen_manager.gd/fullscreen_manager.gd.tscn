@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bduqir4kr4upj"]
+
+[ext_resource type="Script" uid="uid://8rmf6pehjpg7" path="res://misc/fullscreen_manager.gd/fullscreen_manager.gd.gd" id="1_xge5h"]
+
+[node name="FullscreenManager_gd" type="Node2D" unique_id=1542412281]
+script = ExtResource("1_xge5h")
