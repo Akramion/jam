@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ca85ia8812amm" path="res://objects/player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://o540jvhlyggy" path="res://assets/sprites/boy.png" id="2_g7ett"]
+[ext_resource type="AudioStream" uid="uid://ci82jketaqoi2" path="res://assets/sounds/Footstep 1.wav" id="2_xkryw"]
+[ext_resource type="AudioStream" uid="uid://cejnx30my8djp" path="res://assets/sounds/Footstep 2.wav" id="3_ow0dq"]
 [ext_resource type="Texture2D" uid="uid://d2ch6iisaqb6c" path="res://assets/sprites/begit.png" id="3_ssrue"]
 [ext_resource type="Texture2D" uid="uid://r0twrx3at60o" path="res://assets/sprites/shadow.png" id="4_jnjyq"]
 
@@ -257,6 +259,7 @@ collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_oul6g")
 step_interval = 0.35
+step_sounds = Array[AudioStream]([ExtResource("2_xkryw"), ExtResource("3_ow0dq")])
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1998385303]
 modulate = Color(1, 1, 1, 0.5882353)
@@ -281,3 +284,7 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1055241350]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_57qmd")
+
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="." unique_id=1444335509]
+stream = ExtResource("2_xkryw")
+bus = &"Steps"

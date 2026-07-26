@@ -4,12 +4,15 @@ extends Area2D
 signal activation_changed(active: bool)
 
 @export var targets: Array[Node]
+@export var press_sounds: Array[AudioStream]
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var press_sound: AudioStreamPlayer2D = $PressSound
+@onready var release_sound: AudioStreamPlayer2D = $ReleaseSound
 
 var bodies_on_button: Array[Node2D] = []
 var is_active := false
-
+var current_note_index := 0
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -79,8 +82,19 @@ func _notify_targets() -> void:
 			)
 
 func _play_state_sound() -> void:
-	#if is_active:
-		#sound_emitter.set_parameter("Parameter 1", 0.0)
-	#else:
-		#sound_emitter.set_parameter("Parameter 1", 1.0)
-	return
+	if is_active:
+		play_next_note()
+	else:
+		release_sound.play()
+	
+func play_next_note() -> void:
+	if press_sounds.is_empty():
+		return
+
+	press_sound.stream = press_sounds[current_note_index]
+	press_sound.play()
+
+	current_note_index += 1
+
+	if current_note_index >= press_sounds.size():
+		current_note_index = 0

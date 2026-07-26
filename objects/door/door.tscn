@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cn0v8r56ioyrq" path="res://objects/door/door.gd" id="1_0i0ho"]
 [ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="2_0i0ho"]
+[ext_resource type="AudioStream" uid="uid://c1qhy76r05qej" path="res://assets/sounds/Door open.wav" id="3_ln868"]
+[ext_resource type="AudioStream" uid="uid://cde457wjh1mbm" path="res://assets/sounds/Door close.wav" id="4_58wfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(64, 32)
@@ -46,3 +48,11 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"opened"
 autoplay = "closed"
+
+[node name="OpenPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1801372403]
+stream = ExtResource("3_ln868")
+bus = &"SFX"
+
+[node name="ClosePlayer" type="AudioStreamPlayer2D" parent="." unique_id=863391966]
+stream = ExtResource("4_58wfd")
+bus = &"SFX"

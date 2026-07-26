@@ -22,6 +22,8 @@ enum VisualState {
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var active_timer: Timer = $ActiveTimer
+@onready var press_sound: AudioStreamPlayer2D = $PressSound
+@onready var release_sound: AudioStreamPlayer2D = $ReleaseSound
 
 var is_active := false
 var is_completed := false
@@ -54,6 +56,7 @@ func activate_permanently() -> void:
 	active_timer.stop()
 	set_visual_state(VisualState.COMPLETED)
 
+	press_sound.play()
 	active_changed.emit(true)
 	pressed.emit(self)
 
@@ -87,11 +90,16 @@ func complete() -> void:
 func reset_button() -> void:
 	active_timer.stop()
 
+	var was_active := is_active
+
 	is_active = false
 	is_completed = false
 
 	set_visual_state(VisualState.OFF)
-	active_changed.emit(false)
+
+	if was_active:
+		release_sound.play()
+		active_changed.emit(false)
 
 
 func _on_active_timer_timeout() -> void:
@@ -101,6 +109,7 @@ func _on_active_timer_timeout() -> void:
 	is_active = false
 	set_visual_state(VisualState.OFF)
 
+	release_sound.play()
 	active_changed.emit(false)
 
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cslasfgrf8pip"
+path="res://.godot/imported/Wall_button 3.wav-a9b360ceb274b9a5faf7e16d8dff0b1f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Wall_button 3.wav"
+dest_files=["res://.godot/imported/Wall_button 3.wav-a9b360ceb274b9a5faf7e16d8dff0b1f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

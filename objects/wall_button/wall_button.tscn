@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_gn2x8"]
 [ext_resource type="Script" uid="uid://b63sk840nru4a" path="res://objects/wall_button/wall_button.gd" id="1_wja6m"]
+[ext_resource type="AudioStream" uid="uid://cttta3owckyaj" path="res://assets/sounds/Button 1.wav" id="3_e55vc"]
+[ext_resource type="AudioStream" uid="uid://d2ijtf0oqincm" path="res://assets/sounds/Button 2.wav" id="4_yv4lb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wja6m"]
 atlas = ExtResource("1_gn2x8")
@@ -50,10 +52,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="ActiveTimer" type="Timer" parent="." unique_id=224465868]
 one_shot = true
 
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=2103571208]
-event_name = "event:/Button"
-event_guid = "{5cd16e36-3322-4fd7-9858-41778d3a99f0}"
-"fmod_parameters/Parameter 1/id" = 7254248103703392866
-"fmod_parameters/Parameter 1" = "Start"
-"fmod_parameters/Parameter 1/labels" = PackedStringArray("Start", "Finish")
-"fmod_parameters/Parameter 1/variant_type" = 4
+[node name="PressSound" type="AudioStreamPlayer2D" parent="." unique_id=440514945]
+stream = ExtResource("3_e55vc")
+bus = &"SFX"
+
+[node name="ReleaseSound" type="AudioStreamPlayer2D" parent="." unique_id=734220566]
+stream = ExtResource("4_yv4lb")
+bus = &"SFX"

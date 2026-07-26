@@ -20,6 +20,7 @@ var clone_count := 0
 
 func _ready() -> void:
 	spawn_position = player.global_position
+	AudioManager.set_menu_mode(true)
 
 	if level_exit:
 		level_exit.level_completed.connect(_on_level_completed)
@@ -94,7 +95,7 @@ func _on_level_completed() -> void:
 
 	level_is_completed = true
 	
-	AudioManager.level_complete()
+	AudioManager.play_level_complete()
 
 	player.stop_recording()
 	player.velocity = Vector2.ZERO

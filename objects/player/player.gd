@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 @export var speed := 190.0
 
+@onready var steps_sound: AudioStreamPlayer2D = $StepsSound
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
 @export var step_interval := 0.32
+@export var step_sounds: Array[AudioStream]
 
 var step_time_left := 0.0
+var current_step_index := 0
 
 var recorded_inputs: Array[Dictionary] = []
 var is_recording := false
@@ -133,5 +136,19 @@ func _update_footsteps(direction: Vector2, delta: float) -> void:
 	step_time_left -= delta
 
 	if step_time_left <= 0.0:
-		#steps_sound.play()
+		_play_step()
 		step_time_left = step_interval
+
+func _play_step() -> void:
+	if step_sounds.is_empty():
+		return
+
+	steps_sound.stream = step_sounds[current_step_index]
+	steps_sound.pitch_scale = randf_range(0.97, 1.03)
+	steps_sound.play()
+
+	current_step_index = wrapi(
+		current_step_index + 1,
+		0,
+		step_sounds.size()
+	)

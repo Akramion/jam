@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgmo663vyixqx" path="res://objects/button/button.gd" id="1_wd1pd"]
 [ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="2_wd1pd"]
+[ext_resource type="AudioStream" uid="uid://cytnwndbna3ry" path="res://assets/sounds/Wall_button 1.wav" id="3_f3igj"]
+[ext_resource type="AudioStream" uid="uid://jh3s2skuq73c" path="res://assets/sounds/Wall_button 2.wav" id="3_yf4hm"]
+[ext_resource type="AudioStream" uid="uid://d2ijtf0oqincm" path="res://assets/sounds/Button 2.wav" id="4_ond4t"]
+[ext_resource type="AudioStream" uid="uid://cslasfgrf8pip" path="res://assets/sounds/Wall_button 3.wav" id="4_pjg06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -36,6 +40,7 @@ animations = [{
 collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_wd1pd")
+press_sounds = Array[AudioStream]([ExtResource("3_f3igj"), ExtResource("3_yf4hm"), ExtResource("4_pjg06")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856572518]
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -43,3 +48,11 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=295980445]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"on"
+
+[node name="PressSound" type="AudioStreamPlayer2D" parent="." unique_id=1992847352]
+stream = ExtResource("3_f3igj")
+bus = &"SFX"
+
+[node name="ReleaseSound" type="AudioStreamPlayer2D" parent="." unique_id=536627473]
+stream = ExtResource("4_ond4t")
+bus = &"SFX"

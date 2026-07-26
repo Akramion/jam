@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://qt8v1n11p5tt"]
 
 [ext_resource type="Script" uid="uid://bwnvgd34n34dd" path="res://misc/audio_manager/audio_manager.gd" id="1_3ps6c"]
+[ext_resource type="AudioStream" uid="uid://cuyvef7q6b3rk" path="res://assets/sounds/Jamus music.ogg" id="2_1p34s"]
+[ext_resource type="AudioStream" uid="uid://dg6mx5ybat7f1" path="res://assets/sounds/Reverse.wav" id="3_0j5ni"]
+[ext_resource type="AudioStream" uid="uid://due3q0p1i623y" path="res://assets/sounds/restart_level.wav" id="4_7js80"]
+[ext_resource type="AudioStream" uid="uid://oe2eh8qqfxm4" path="res://assets/sounds/level completed.wav" id="5_mdvqg"]
 
 [node name="AudioManager" type="Node2D" unique_id=1573523870]
 script = ExtResource("1_3ps6c")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1943852732]
+stream = ExtResource("2_1p34s")
+bus = &"Music"
+
+[node name="RewindPlayer" type="AudioStreamPlayer2D" parent="." unique_id=574367045]
+stream = ExtResource("3_0j5ni")
+bus = &"Level"
+
+[node name="RestartPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1208833048]
+stream = ExtResource("4_7js80")
+bus = &"Level"
+
+[node name="LevelCompletePlayer" type="AudioStreamPlayer2D" parent="." unique_id=2082115259]
+stream = ExtResource("5_mdvqg")
+bus = &"Level"
