@@ -115,15 +115,14 @@ tile_map_data = PackedByteArray("AAAKAAAAAgACAAcAAAAJAAAAAgACAAcAAAAIAAAAAgACAAc
 tile_set = SubResource("TileSet_7nvrk")
 metadata/_edit_lock_ = true
 
-[node name="Button" parent="." unique_id=76371632 node_paths=PackedStringArray("targets") instance=ExtResource("3_5ot28")]
+[node name="Button" parent="." unique_id=76371632 instance=ExtResource("3_5ot28")]
 position = Vector2(320, 304)
-targets = [NodePath("../Ysort/Door")]
 
 [node name="Ysort" type="Node2D" parent="." unique_id=1821580409]
 y_sort_enabled = true
 
 [node name="Player" parent="Ysort" unique_id=124266775 instance=ExtResource("4_aerfg")]
-position = Vector2(368, 232)
+position = Vector2(320, 232)
 
 [node name="LevelExit" parent="Ysort" unique_id=1557218980 instance=ExtResource("2_08mmt")]
 position = Vector2(320, 32)

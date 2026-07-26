@@ -6,7 +6,6 @@ signal activation_changed(active: bool)
 @export var targets: Array[Node]
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sound_emitter: FmodEventEmitter2D = $FmodEventEmitter2D
 
 var bodies_on_button: Array[Node2D] = []
 var is_active := false
@@ -84,5 +83,4 @@ func _play_state_sound() -> void:
 		#sound_emitter.set_parameter("Parameter 1", 0.0)
 	#else:
 		#sound_emitter.set_parameter("Parameter 1", 1.0)
-
-	sound_emitter.play()
+	return

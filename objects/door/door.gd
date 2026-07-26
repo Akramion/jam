@@ -5,7 +5,6 @@ extends StaticBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var fmod_event_emitter_2d: FmodEventEmitter2D = $FmodEventEmitter2D
 
 var is_open := false
 
@@ -32,9 +31,10 @@ func _apply_state(opened: bool) -> void:
 	collision.set_deferred("disabled", is_open)
 
 func _play_state_sound(opened) -> void:
-	if opened:
-		fmod_event_emitter_2d.set_parameter("Door", 0.0)
-	else:
-		fmod_event_emitter_2d.set_parameter("Door", 1.0)
-
-	fmod_event_emitter_2d.play()
+	#if opened:
+		#fmod_event_emitter_2d.set_parameter("Door", 0.0)
+	#else:
+		#fmod_event_emitter_2d.set_parameter("Door", 1.0)
+#
+	#fmod_event_emitter_2d.play()
+	return

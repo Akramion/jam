@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
-@onready var steps_sound: FmodEventEmitter2D = $StepsSound
 @export var step_interval := 0.32
 
 var step_time_left := 0.0
@@ -134,5 +133,5 @@ func _update_footsteps(direction: Vector2, delta: float) -> void:
 	step_time_left -= delta
 
 	if step_time_left <= 0.0:
-		steps_sound.play()
+		#steps_sound.play()
 		step_time_left = step_interval

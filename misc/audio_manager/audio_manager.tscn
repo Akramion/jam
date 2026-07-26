@@ -4,22 +4,3 @@
 
 [node name="AudioManager" type="Node2D" unique_id=1573523870]
 script = ExtResource("1_3ps6c")
-
-[node name="MusicEmitter" type="FmodEventEmitter2D" parent="." unique_id=514211075]
-event_name = "event:/Music"
-event_guid = "{6e2c7ade-5819-40c3-9888-659b3c7f6808}"
-fmod_parameters/Filter/id = 7434995716630137820
-fmod_parameters/Filter = 0.0
-fmod_parameters/Filter/variant_type = 3
-
-[node name="RewindEmitter" type="FmodEventEmitter2D" parent="." unique_id=1432370266]
-event_name = "event:/Reverse"
-event_guid = "{8a33e984-ab02-4ff4-b273-0e17c473d841}"
-
-[node name="RestartEmitter" type="FmodEventEmitter2D" parent="." unique_id=1928733949]
-event_name = "event:/Restart"
-event_guid = "{14cbb899-ce09-49a9-b1f8-14aa9e5dcfbe}"
-
-[node name="LevelCompleteEmitter" type="FmodEventEmitter2D" parent="." unique_id=1315065086]
-event_name = "event:/Level completed"
-event_guid = "{9512d9f5-667c-4072-85c5-e0a0a934ff67}"

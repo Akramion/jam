@@ -46,12 +46,3 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"opened"
 autoplay = "closed"
-
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=2008627923]
-event_name = "event:/Door"
-event_guid = "{22229ad8-5618-4354-bb63-9e6136748713}"
-volume = 0.4
-fmod_parameters/Door/id = 2369189473630323
-fmod_parameters/Door = "open"
-fmod_parameters/Door/labels = PackedStringArray("open", "close")
-fmod_parameters/Door/variant_type = 4

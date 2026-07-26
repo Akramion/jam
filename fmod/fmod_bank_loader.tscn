@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://da704sw6w7gl0"]
-
-[node name="FmodBankLoader" type="Node2D" unique_id=524765763]
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1122488910]
-bank_paths = ["res://fmod/Master.strings.bank", "res://fmod/Master.bank"]

@@ -43,8 +43,3 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=295980445]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"on"
-
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=2100526499]
-event_name = "event:/Wall_button"
-event_guid = "{6eb53e95-0cb6-4d1a-a43a-1f96f35722ad}"
-volume = 0.5
