@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dgiaa77ffc4o8"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_vtcbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_vtcbk")
+region = Rect2(209, 207, 32, 32)
+
+[node name="Ventilation" type="Node2D" unique_id=2092042054]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=548575494]
+texture = SubResource("AtlasTexture_g4v7s")

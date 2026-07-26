@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dcu22sgd4rry7"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_hd5gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("1_hd5gt")
+region = Rect2(32, 192, 32, 32)
+
+[node name="PosterLight" type="Node2D" unique_id=539966462]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=632550463]
+position = Vector2(0, -24)
+texture = SubResource("AtlasTexture_g4v7s")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://sc17o64ixgbi"]
+
+[ext_resource type="Texture2D" uid="uid://r0twrx3at60o" path="res://assets/sprites/shadow.png" id="1_32dkv"]
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_x4xgc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r531"]
+atlas = ExtResource("1_x4xgc")
+region = Rect2(352, 309, 32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(20, 34)
+
+[node name="Chair" type="StaticBody2D" unique_id=456706941]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=70027120]
+modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(0, 16)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_32dkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1854597778]
+texture = SubResource("AtlasTexture_3r531")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=385832870]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g4v7s")

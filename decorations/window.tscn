@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dmej45byg3nji"]
+
+[ext_resource type="Texture2D" uid="uid://cxqa3hrd3gxxv" path="res://assets/sprites/tiles.png" id="1_miu4a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs1h5"]
+atlas = ExtResource("1_miu4a")
+region = Rect2(64, 352, 32, 32)
+
+[node name="Window" type="Node2D" unique_id=970030924]
+
+[node name="Node2D" type="Sprite2D" parent="." unique_id=760955204]
+position = Vector2(0, -24)
+texture = SubResource("AtlasTexture_xs1h5")

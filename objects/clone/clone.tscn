@@ -243,8 +243,9 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(32, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thpu6"]
+radius = 8.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(48, 58)
@@ -260,7 +261,7 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle_back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709396000]
-shape = SubResource("RectangleShape2D_g4v7s")
+shape = SubResource("CapsuleShape2D_thpu6")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=417216239]
 collision_layer = 4
